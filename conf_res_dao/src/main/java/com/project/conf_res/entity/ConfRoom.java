@@ -2,7 +2,7 @@ package com.project.conf_res.entity;
 
 public class ConfRoom {
     private Integer id;
-    private String roomName;
+    private String name;
     private Integer member;
     private String location;
     private String state;
@@ -15,12 +15,12 @@ public class ConfRoom {
         this.id = id;
     }
 
-    public String getRoomName() {
-        return roomName;
+    public String getName() {
+        return name;
     }
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getMember() {

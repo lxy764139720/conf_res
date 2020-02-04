@@ -26,7 +26,7 @@
         <!--业务层依赖-->
         <dependency>
             <groupId>com.project</groupId>
-            <artifactId>conf_res_biz</artifactId>
+            <artifactId>conf_res_service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!--servlet和jstl-->

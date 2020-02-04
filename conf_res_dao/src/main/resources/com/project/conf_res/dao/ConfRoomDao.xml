@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.conf_res.dao.ConfRoomDao">
+    <resultMap id="resultMap" type="ConfRoom">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="name" column="name" javaType="String"/>
+        <result property="member" column="member" javaType="Integer"/>
+        <result property="location" column="location" javaType="String"/>
+        <result property="state" column="state" javaType="String"/>
+    </resultMap>
+    <insert id="insert" parameterType="ConfRoom" useGeneratedKeys="true">
+        INSERT INTO conf_room VALUES (#{id},#{name},#{member},#{location},#{state})
+    </insert>
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM conf_room WHERE id=#{id}
+    </delete>
+    <update id="update" parameterType="ConfRoom">
+        UPDATE conf_room SET name=#{name},member=#{member},location=#{location},state=#{state} WHERE id=#{id}
+    </update>
+    <select id="selectById" parameterType="Integer" resultMap="resultMap">
+        SELECT * FROM conf_room WHERE id=#{id}
+    </select>
+    <select id="selectByName" parameterType="String" resultMap="resultMap">
+        SELECT * FROM conf_room WHERE name=#{name}
+    </select>
+    <select id="selectAll" resultMap="resultMap">
+        SELECT * FROM conf_room
+    </select>
+</mapper>

@@ -1,6 +1,8 @@
 package com.project.conf_res.global;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class EncodingFilter implements Filter {
@@ -14,9 +16,11 @@ public class EncodingFilter implements Filter {
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        servletRequest.setCharacterEncoding(this.encoding);
-        servletResponse.setCharacterEncoding(this.encoding);
-        filterChain.doFilter(servletRequest, servletResponse);
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        request.setCharacterEncoding(this.encoding);
+        response.setCharacterEncoding(this.encoding);
+        filterChain.doFilter(request, response);
     }
 
     public void destroy() {

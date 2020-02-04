@@ -5,7 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>conf_res_dao</module>
-        <module>conf_res_biz</module>
+        <module>conf_res_service</module>
         <module>conf_res_web</module>
     </modules>
     <parent>
