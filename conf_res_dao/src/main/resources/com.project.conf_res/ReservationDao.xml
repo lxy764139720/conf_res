@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.conf_res.dao.ReservationDao">
+    <resultMap id="resultMap" type="User">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="uid" column="uid" javaType="Integer"/>
+        <result property="rid" column="rid" javaType="Integer"/>
+        <result property="member" column="member" javaType="Integer"/>
+        <result property="date" column="date" javaType="java.time.LocalDate"/>
+        <result property="time" column="time" javaType="String"/>
+        <result property="res_time" column="res_time" javaType="java.time.LocalDateTime"/>
+        <result property="usage" column="usage" javaType="String"/>
+        <result property="tel" column="tel" javaType="String"/>
+        <result property="info" column="info" javaType="String"/>
+    </resultMap>
+    <insert id="insert" parameterType="Reservation" useGeneratedKeys="true">
+        INSERT INTO reservation VALUES (#{id},#{uid},#{rid},#{member},#{date},#{time},#{res_time},#{usage},#{tel},#{info})
+    </insert>
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM reservation WHERE id=#{id}
+    </delete>
+    <delete id="deleteOverdue" parameterType="java.time.LocalDate"><!--小于号转义为&lt;-->
+        DELETE FROM reservation WHERE date&lt;#{date}
+    </delete>
+    <update id="update" parameterType="Reservation">
+        UPDATE reservation SET uid=#{uid},rid=#{rid},member=#{member},date=#{date},time=#{time},res_time=#{res_time},
+        usage=#{usage},tel=#{tel},info=#{info} WHERE id=#{id}
+    </update>
+    <select id="selectById" parameterType="Integer" resultMap="resultMap">
+        SELECT * FROM reservation WHERE id=#{id}
+    </select>
+    <select id="selectByUid" resultMap="resultMap"><!--大于号转义为&gt;-->
+        SELECT * FROM reservation WHERE uid=#{uid} and date&gt;=#{date}
+    </select>
+    <select id="selectByRid" resultMap="resultMap"><!--大于号转义为&gt;-->
+        SELECT * FROM reservation WHERE rid=#{rid} and date&gt;=#{date}
+    </select>
+    <select id="selectAll" resultMap="resultMap">
+        SELECT * FROM reservation ORDER BY res_time DEC
+    </select>
+</mapper>

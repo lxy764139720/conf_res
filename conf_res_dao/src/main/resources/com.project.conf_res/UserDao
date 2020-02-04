@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.conf_res.dao.UserDao">
+    <resultMap id="resultMap" type="User">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="account" column="account" javaType="String"/>
+        <result property="password" column="password" javaType="String"/>
+        <result property="name" column="name" javaType="String"/>
+    </resultMap>
+    <insert id="insert" parameterType="User" useGeneratedKeys="true">
+        INSERT INTO user VALUES (#{id},#{account},#{password},#{name})
+    </insert>
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM user WHERE id=#{id}
+    </delete>
+    <update id="update" parameterType="User">
+        UPDATE user SET account=#{account},password=#{password},name=#{name} WHERE id=#{id}
+    </update>
+    <select id="selectById" parameterType="Integer" resultMap="resultMap">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
+    <select id="selectAll" resultMap="resultMap">
+        SELECT * FROM user
+    </select>
+</mapper>
