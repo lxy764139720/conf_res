@@ -21,9 +21,9 @@
                                 <button type="button" class="btn btn-default light">
                                     <i class="fa fa-trash"></i>
                                 </button>
-                                <button type="button" class="btn btn-default light">
-                                    <i class="fa fa-plus"
-                                       onclick="window.location.href='/confroom/to_add';"></i>
+                                <button type="button" class="btn btn-default light"
+                                        onclick="window.location.href='/confroom/to_add';">
+                                    <i class="fa fa-plus"></i>
                                 </button>
                             </div>
                         </div>

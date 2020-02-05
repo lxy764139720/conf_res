@@ -8,18 +8,28 @@
         <result property="name" column="name" javaType="String"/>
     </resultMap>
     <insert id="insert" parameterType="User" useGeneratedKeys="true">
-        INSERT INTO user VALUES (#{id},#{account},#{password},#{name})
+        INSERT INTO user(`account`, `password`, `name`)
+        VALUES (#{account}, #{password}, #{name})
     </insert>
     <delete id="delete" parameterType="Integer">
-        DELETE FROM user WHERE id=#{id}
+        DELETE
+        FROM user
+        WHERE `id` = #{id}
     </delete>
     <update id="update" parameterType="User">
-        UPDATE user SET account=#{account},password=#{password},name=#{name} WHERE id=#{id}
+        UPDATE user
+        SET `account`=#{account},
+            `password`=#{password},
+            `name`=#{name}
+        WHERE `id` = #{id}
     </update>
     <select id="selectById" parameterType="Integer" resultMap="resultMap">
-        SELECT * FROM user WHERE id=#{id}
+        SELECT *
+        FROM user
+        WHERE `id` = #{id}
     </select>
     <select id="selectAll" resultMap="resultMap">
-        SELECT * FROM user
+        SELECT *
+        FROM `user`
     </select>
 </mapper>

@@ -9,21 +9,34 @@
         <result property="state" column="state" javaType="String"/>
     </resultMap>
     <insert id="insert" parameterType="ConfRoom" useGeneratedKeys="true">
-        INSERT INTO conf_room VALUES (#{id},#{name},#{member},#{location},#{state})
+        INSERT INTO conf_room(name, member, location, state)
+        VALUES (#{name}, #{member}, #{location}, #{state})
     </insert>
     <delete id="delete" parameterType="Integer">
-        DELETE FROM conf_room WHERE id=#{id}
+        DELETE
+        FROM conf_room
+        WHERE id = #{id}
     </delete>
     <update id="update" parameterType="ConfRoom">
-        UPDATE conf_room SET name=#{name},member=#{member},location=#{location},state=#{state} WHERE id=#{id}
+        UPDATE conf_room
+        SET name=#{name},
+            member=#{member},
+            location=#{location},
+            state=#{state}
+        WHERE id = #{id}
     </update>
     <select id="selectById" parameterType="Integer" resultMap="resultMap">
-        SELECT * FROM conf_room WHERE id=#{id}
+        SELECT *
+        FROM conf_room
+        WHERE id = #{id}
     </select>
     <select id="selectByName" parameterType="String" resultMap="resultMap">
-        SELECT * FROM conf_room WHERE name=#{name}
+        SELECT *
+        FROM conf_room
+        WHERE name = #{name}
     </select>
     <select id="selectAll" resultMap="resultMap">
-        SELECT * FROM conf_room
+        SELECT *
+        FROM conf_room
     </select>
 </mapper>

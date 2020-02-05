@@ -11,24 +11,44 @@
         <result property="info" column="info" javaType="String"/>
     </resultMap>
     <insert id="insert" parameterType="AuditLog" useGeneratedKeys="true">
-        INSERT INTO audit_log VALUES (#{id},#{aid},#{uid},#{rid},#{auditTime},#{auditResult},#{info})
+        INSERT INTO audit_log(`aid`, `uid`, `rid`, `audit_time`, `audit_result`, `info`)
+        VALUES (#{aid}, #{uid}, #{rid}, #{auditTime}, #{auditResult}, #{info})
     </insert>
     <delete id="delete" parameterType="Integer">
-        DELETE FROM audit_log WHERE id=#{id}
+        DELETE
+        FROM audit_log
+        WHERE `id` = #{id}
     </delete>
     <update id="update" parameterType="AuditLog">
-        UPDATE audit_log SET aid=#{aid},uid=#{uid},rid=#{rid},audit_time=#{auditTime},audit_result#{auditResult},info=#{info} WHERE id=#{id}
+        UPDATE audit_log
+        SET `aid`=#{aid},
+            `uid`=#{uid},
+            `rid`=#{rid},
+            `audit_time`=#{auditTime},
+            `audit_result`=#{auditResult},
+            `info`=#{info}
+        WHERE `id` = #{id}
     </update>
     <select id="selectById" parameterType="Integer" resultMap="resultMap">
-        SELECT * FROM audit_log WHERE id=#{id}
+        SELECT *
+        FROM audit_log
+        WHERE `id` = #{id}
     </select>
     <select id="selectByUid" parameterType="Integer" resultMap="resultMap">
-        SELECT * FROM reservation WHERE uid=#{uid} ORDER BY audit_time DEC
+        SELECT *
+        FROM audit_log
+        WHERE `uid` = #{uid}
+        ORDER BY `audit_time` DESC
     </select>
     <select id="selectByRid" parameterType="Integer" resultMap="resultMap">
-        SELECT * FROM reservation WHERE rid=#{rid} ORDER BY audit_time DEC
+        SELECT *
+        FROM audit_log
+        WHERE `rid` = #{rid}
+        ORDER BY `audit_time` DESC
     </select>
     <select id="selectAll" resultMap="resultMap">
-        SELECT * FROM audit_log ORDER BY audit_time DEC
+        SELECT *
+        FROM audit_log
+        ORDER BY `audit_time` DESC
     </select>
 </mapper>
