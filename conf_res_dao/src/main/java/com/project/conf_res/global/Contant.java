@@ -1,7 +1,9 @@
 package com.project.conf_res.global;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Contant {
 
@@ -37,11 +39,11 @@ public class Contant {
     public static final String ROOM_STATE_OPEN = "开放";
     public static final String ROOM_STATE_OFF = "关闭";
 
-    public List<String> getRoomState() {
-        List<String> list = new ArrayList<>();
-        list.add(ROOM_STATE_OPEN);
-        list.add(ROOM_STATE_OFF);
-        return list;
+    public static Map<String, String> getRoomState() {
+        Map<String, String> map = new HashMap<>();
+        map.put("开放", ROOM_STATE_OPEN);
+        map.put("关闭", ROOM_STATE_OFF);
+        return map;
     }
 
     //审核结果

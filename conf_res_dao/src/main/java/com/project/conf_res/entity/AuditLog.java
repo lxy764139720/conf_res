@@ -11,6 +11,10 @@ public class AuditLog {
     private String auditResult;
     private String info;
 
+    private User user;
+    private Reservation reservation;
+    private Administrator auditor;
+
     public Integer getId() {
         return id;
     }
@@ -65,5 +69,29 @@ public class AuditLog {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
+
+    public Administrator getAuditor() {
+        return auditor;
+    }
+
+    public void setAuditor(Administrator auditor) {
+        this.auditor = auditor;
     }
 }

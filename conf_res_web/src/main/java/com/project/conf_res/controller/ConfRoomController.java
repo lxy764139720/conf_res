@@ -2,6 +2,7 @@ package com.project.conf_res.controller;
 
 import com.project.conf_res.ConfRoomService;
 import com.project.conf_res.entity.ConfRoom;
+import com.project.conf_res.global.Contant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,13 +30,27 @@ public class ConfRoomController {
 
     @RequestMapping("/add")
     public String add(ConfRoom ROOM) {
-//        ConfRoom confRoom = new ConfRoom();
-//        confRoom.setName((String) ROOM.get("name"));
-//        confRoom.setMember((Integer) ROOM.get("member"));
-//        confRoom.setLocation((String) ROOM.get("location"));
-//        confRoom.setState("开放");
         ROOM.setState("开放");
         this.confRoomService.add(ROOM); //与上面传入jsp页面的参数名称保持一致
+        return "redirect:list";
+    }
+
+    @RequestMapping(value = "/to_edit",params = "id")
+    public String to_edit(Integer id,Map<String, Object> map) {
+        map.put("ROOM", this.confRoomService.get(id)); //与下面add函数参数名称保持一致
+        map.put("STATE", Contant.getRoomState());
+        return "confroom_edit.jsp";
+    }
+
+    @RequestMapping("/edit")
+    public String edit(ConfRoom ROOM) {
+        this.confRoomService.edit(ROOM); //与上面传入jsp页面的参数名称保持一致
+        return "redirect:list";
+    }
+
+    @RequestMapping(value = "/remove",params = "id")
+    public String remove(Integer id) {
+        this.confRoomService.remove(id); //与上面传入jsp页面的参数名称保持一致
         return "redirect:list";
     }
 }

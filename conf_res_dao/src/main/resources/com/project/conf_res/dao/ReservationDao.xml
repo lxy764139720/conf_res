@@ -12,6 +12,10 @@
         <result property="usage" column="usage" javaType="String"/>
         <result property="tel" column="tel" javaType="String"/>
         <result property="info" column="info" javaType="String"/>
+        <association property="user" column="uid" javaType="User"
+                     select="com.project.conf_res.dao.UserDao.selectById"/>
+        <association property="conf_room" column="rid" javaType="ConfRoom"
+                     select="com.project.conf_res.dao.ConfRoomDao.selectById"/>
     </resultMap>
     <insert id="insert" parameterType="Reservation" useGeneratedKeys="true">
         INSERT INTO reservation (`uid`, `rid`, `member`, `date`, `time`, `res_time`, `usage`, `tel`, `info`)

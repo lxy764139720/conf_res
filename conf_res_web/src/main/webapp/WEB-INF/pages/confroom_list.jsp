@@ -66,7 +66,7 @@
                                 <td>${room.location}</td>
                                 <td>${room.state}</td>
                                 <td>
-                                    <a href="<c:url value="/confroom/to_update?id=${room.id}"/>">编辑</a>
+                                    <a href="<c:url value="/confroom/to_edit?id=${room.id}"/>">编辑</a>
                                     <a href="<c:url value="/confroom/remove?id=${room.id}"/>">删除</a>
                                 </td>
                             </tr>

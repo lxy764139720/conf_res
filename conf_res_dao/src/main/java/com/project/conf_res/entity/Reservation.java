@@ -15,6 +15,9 @@ public class Reservation {
     private String tel;
     private String info;
 
+    private User user;
+    private ConfRoom room;
+
     public Integer getId() {
         return id;
     }
@@ -93,5 +96,21 @@ public class Reservation {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public ConfRoom getRoom() {
+        return room;
+    }
+
+    public void setRoom(ConfRoom room) {
+        this.room = room;
     }
 }
