@@ -11,7 +11,7 @@ public class Contant {
     public static final String ROLE_USER = "用户";
     public static final String ROLE_ADMINISTRATOR = "管理员";
 
-    public List<String> getRole() {
+    public static List<String> getRole() {
         List<String> list = new ArrayList<>();
         list.add(ROLE_USER);
         list.add(ROLE_ADMINISTRATOR);
@@ -25,7 +25,7 @@ public class Contant {
     public static final String TIME_4 = "16:00-18:00";
     public static final String TIME_5 = "19:00-21:00";
 
-    public List<String> getTime() {
+    public static List<String> getTime() {
         List<String> list = new ArrayList<>();
         list.add(TIME_1);
         list.add(TIME_2);
@@ -39,11 +39,11 @@ public class Contant {
     public static final String ROOM_STATE_OPEN = "开放";
     public static final String ROOM_STATE_OFF = "关闭";
 
-    public static Map<String, String> getRoomState() {
-        Map<String, String> map = new HashMap<>();
-        map.put("开放", ROOM_STATE_OPEN);
-        map.put("关闭", ROOM_STATE_OFF);
-        return map;
+    public static List<String> getRoomState() {
+        List<String> list = new ArrayList<>();
+        list.add(ROOM_STATE_OPEN);
+        list.add(ROOM_STATE_OFF);
+        return list;
     }
 
     //审核结果
@@ -51,7 +51,7 @@ public class Contant {
     public static final String AUDIT_RESULT_PASS = "已通过";
     public static final String AUDIT_RESULT_REJECT = "已拒绝";
 
-    public List<String> getAuditResult() {
+    public static List<String> getAuditResult() {
         List<String> list = new ArrayList<>();
         list.add(AUDIT_RESULT_WAITING);
         list.add(AUDIT_RESULT_PASS);
@@ -66,7 +66,7 @@ public class Contant {
     public static final String USER_REMOVE = "删除";
     public static final String USER_CHECK = "查看";
 
-    public List<String> getUserOperation() {
+    public static List<String> getUserOperation() {
         List<String> list = new ArrayList<>();
         list.add(USER_CREATE);
         list.add(USER_UPDATE);
@@ -81,7 +81,7 @@ public class Contant {
     public static final String ADMINISTRATOR_PASS = "通过";
     public static final String ADMINISTRATOR_REJECT = "拒绝";
 
-    public List<String> getAdministratorOperation() {
+    public static List<String> getAdministratorOperation() {
         List<String> list = new ArrayList<>();
         list.add(ADMINISTRATOR_CHECK);
         list.add(ADMINISTRATOR_PASS);
@@ -96,7 +96,7 @@ public class Contant {
     public static final String ROOM_UPDATE = "修改";
     public static final String ROOM_CHECK = "查看";
 
-    public List<String> getRoomOperation() {
+    public static List<String> getRoomOperation() {
         List<String> list = new ArrayList<>();
         list.add(ROOM_ADD);
         list.add(ROOM_DELETE);

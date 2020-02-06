@@ -30,14 +30,13 @@ public class ConfRoomController {
 
     @RequestMapping("/add")
     public String add(ConfRoom ROOM) {
-        ROOM.setState("开放");
         this.confRoomService.add(ROOM); //与上面传入jsp页面的参数名称保持一致
         return "redirect:list";
     }
 
-    @RequestMapping(value = "/to_edit",params = "id")
-    public String to_edit(Integer id,Map<String, Object> map) {
-        map.put("ROOM", this.confRoomService.get(id)); //与下面add函数参数名称保持一致
+    @RequestMapping(value = "/to_edit", params = "id")
+    public String to_edit(Integer id, Map<String, Object> map) {
+        map.put("ROOM", this.confRoomService.get(id)); //与下面edit函数参数名称保持一致
         map.put("STATE", Contant.getRoomState());
         return "confroom_edit.jsp";
     }
@@ -48,9 +47,9 @@ public class ConfRoomController {
         return "redirect:list";
     }
 
-    @RequestMapping(value = "/remove",params = "id")
+    @RequestMapping(value = "/remove", params = "id")
     public String remove(Integer id) {
-        this.confRoomService.remove(id); //与上面传入jsp页面的参数名称保持一致
+        this.confRoomService.remove(id);
         return "redirect:list";
     }
 }

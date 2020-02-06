@@ -15,6 +15,7 @@ public class ConfRoomServiceImpl implements ConfRoomService {
 
     @Override
     public void add(ConfRoom confRoom) {
+        confRoom.setState("开放");
         this.confRoomDao.insert(confRoom);
     }
 

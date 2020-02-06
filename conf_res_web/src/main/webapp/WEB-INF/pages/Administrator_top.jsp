@@ -2,13 +2,12 @@
 <!DOCTYPE html>
 <html>
 
-
 <!-- Mirrored from admindesigns.com/demos/absolute/1.1/admin_forms-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Aug 2015 02:56:15 GMT -->
 <head>
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
 
-    <title> 爱慕课OA--欢迎使用爱慕课OA系统 </title>
+    <title> 会议室预约管理平台 </title>
 
     <link rel="stylesheet" type="text/css" href="/assets/skin/default_skin/css/theme.css">
     <link rel="stylesheet" type="text/css" href="/assets/admin-tools/admin-forms/css/admin-forms.css">
@@ -20,7 +19,7 @@
     <header class="navbar navbar-fixed-top navbar-shadow">
         <div class="navbar-branding">
             <a class="navbar-brand" href="dashboard.html">
-                <b>爱慕课</b>OA
+                <b>会议室预约管理平台</b>
             </a>
             <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
         </div>
@@ -28,7 +27,7 @@
             <li class="dropdown menu-merge">
                 <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
                     <img src="/assets/img/avatars/5.jpg" alt="avatar" class="mw30 br64">
-                    <span class="hidden-xs pl15"> ${sessionScope.employee.name} </span>
+                    <span class="hidden-xs pl15"> ${sessionScope.Administrator.name} </span>
                     <span class="caret caret-tp hidden-xs"></span>
                 </a>
                 <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
@@ -59,7 +58,7 @@
                             <img src="/assets/img/avatars/3.jpg" class="img-responsive">
                         </a>
                         <div class="media-body">
-                            <div class="media-author">${sessionScope.employee.name}---${sessionScope.employee.post}</div>
+                            <div class="media-author">${sessionScope.Administrator.name}---${sessionScope.Administrator.post}</div>
                             <div class="media-links">
                                 <a href="/quit">退出</a>
                             </div>
@@ -76,60 +75,78 @@
                 </div>
             </header>
             <ul class="nav sidebar-menu">
-                <li class="sidebar-label pt20">日常管理</li>
+                <li class="sidebar-label pt20">预约看板</li>
                 <li>
                     <a href="/claim_voucher/deal">
                         <span class="glyphicon glyphicon-book"></span>
-                        <span class="sidebar-title">待处理报销单</span>
-                        <span class="sidebar-title-tray">
-                <span class="label label-xs bg-primary">New</span>
-              </span>
+                        <span class="sidebar-title">预约状态</span>
+                        <%--                        <span class="sidebar-title-tray">--%>
+                        <%--                            <span class="label label-xs bg-primary">New</span>--%>
+                        <%--                        </span>--%>
                     </a>
                 </li>
-                <li class="active">
-                    <a href="/claim_voucher/self">
-                        <span class="glyphicon glyphicon-home"></span>
-                        <span class="sidebar-title">个人报销单</span>
-                    </a>
-                </li>
+                <%--                <li class="active">--%>
+                <%--                    <a href="/claim_voucher/self">--%>
+                <%--                        <span class="glyphicon glyphicon-home"></span>--%>
+                <%--                        <span class="sidebar-title">个人报销单</span>--%>
+                <%--                    </a>--%>
+                <%--                </li>--%>
+                <%--                <li>--%>
+                <%--                    <a href="/claim_voucher/to_add">--%>
+                <%--                        <span class="fa fa-calendar"></span>--%>
+                <%--                        <span class="sidebar-title">填写报销单</span>--%>
+                <%--                    </a>--%>
+                <%--                </li>--%>
+                <li class="sidebar-label pt15">预约审核管理</li>
                 <li>
-                    <a href="/claim_voucher/to_add">
+                    <a class="accordion-toggle" href="#">
                         <span class="fa fa-calendar"></span>
-                        <span class="sidebar-title">填写报销单</span>
+                        <span class="sidebar-title">预约审核</span>
+                        <span class="caret"></span>
                     </a>
+                    <ul class="nav sub-nav">
+                        <li>
+                            <a href="/user/list">
+                                <span class="glyphicon glyphicon-calendar"></span> 审核记录 </a>
+                        </li>
+                        <li class="active">
+                            <a href="/user/to_add">
+                                <span class="glyphicon glyphicon-check"></span> 待处理预约 </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="sidebar-label pt15">基础信息管理</li>
                 <li>
                     <a class="accordion-toggle" href="#">
                         <span class="glyphicon glyphicon-check"></span>
-                        <span class="sidebar-title">员工管理</span>
+                        <span class="sidebar-title">用户管理</span>
                         <span class="caret"></span>
                     </a>
                     <ul class="nav sub-nav">
                         <li>
-                            <a href="/employee/list">
-                                <span class="glyphicon glyphicon-calendar"></span> 所有员工 </a>
+                            <a href="/user/list">
+                                <span class="glyphicon glyphicon-calendar"></span> 所有用户 </a>
                         </li>
                         <li class="active">
-                            <a href="/employee/to_add">
-                                <span class="glyphicon glyphicon-check"></span> 添加员工 </a>
+                            <a href="/user/to_add">
+                                <span class="glyphicon glyphicon-check"></span> 添加用户 </a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a class="accordion-toggle" href="#">
                         <span class="fa fa-columns"></span>
-                        <span class="sidebar-title">部门管理</span>
+                        <span class="sidebar-title">会议室管理</span>
                         <span class="caret"></span>
                     </a>
                     <ul class="nav sub-nav">
                         <li>
-                            <a href="/department/list">
-                                <span class="glyphicon glyphicon-calendar"></span> 所有部门 </a>
+                            <a href="/confroom/list">
+                                <span class="glyphicon glyphicon-calendar"></span> 所有会议室 </a>
                         </li>
                         <li class="active">
-                            <a href="/department/to_add">
-                                <span class="glyphicon glyphicon-check"></span> 添加部门 </a>
+                            <a href="/confroom/to_add">
+                                <span class="glyphicon glyphicon-check"></span> 添加会议室 </a>
                         </li>
                     </ul>
                 </li>

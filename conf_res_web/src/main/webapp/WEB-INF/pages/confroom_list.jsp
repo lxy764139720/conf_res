@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<jsp:include page="top.jsp"/>
+<jsp:include page="Administrator_top.jsp"/>
 
 <section id="content" class="table-layout animated fadeIn">
     <div class="tray tray-center">

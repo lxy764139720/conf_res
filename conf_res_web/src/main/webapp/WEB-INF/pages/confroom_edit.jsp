@@ -1,6 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="top.jsp"/>
+<jsp:include page="Administrator_top.jsp"/>
 <section id="content" class="table-layout animated fadeIn">
     <div class="tray tray-center">
         <div class="content-header">
@@ -40,11 +40,9 @@
                             </label>
                         </div>
                         <div class="section">
-                            <label for="state" class="field prepend-icon">
-                                <form:select path="state" items="${STATE}"/>
-                                <label for="state" class="field-icon">
-                                    <i class="fa fa-building-o"></i>
-                                </label>
+                            <label for="state" class="field select">
+                                <form:select path="state" items="${STATE}" cssClass="gui-input"/>
+                                <i class="arrow double"></i>
                             </label>
                         </div>
                         <div class="panel-footer text-right">
