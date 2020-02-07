@@ -28,6 +28,11 @@
         FROM user
         WHERE `id` = #{id}
     </select>
+    <select id="selectByAccount" parameterType="String" resultMap="resultMap">
+        SELECT *
+        FROM user
+        WHERE `account` = #{account}
+    </select>
     <select id="selectAll" resultMap="resultMap">
         SELECT *
         FROM `user`

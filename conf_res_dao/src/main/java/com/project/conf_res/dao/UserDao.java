@@ -15,5 +15,7 @@ public interface UserDao {
 
     User selectById(Integer id);
 
+    User selectByAccount(String account);
+
     List<User> selectAll();
 }

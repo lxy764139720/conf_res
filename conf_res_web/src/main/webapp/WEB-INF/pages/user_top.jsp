@@ -18,7 +18,7 @@
 <div id="main">
     <header class="navbar navbar-fixed-top navbar-shadow">
         <div class="navbar-branding">
-            <a class="navbar-brand" href="dashboard.html">
+            <a class="navbar-brand">
                 <b>会议室预约平台</b>
             </a>
             <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
@@ -27,7 +27,7 @@
             <li class="dropdown menu-merge">
                 <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
                     <img src="/assets/img/avatars/5.jpg" alt="avatar" class="mw30 br64">
-                    <span class="hidden-xs pl15"> ${sessionScope.user.name} </span>
+                    <span class="hidden-xs pl15"> ${sessionScope.USER.name} </span>
                     <span class="caret caret-tp hidden-xs"></span>
                 </a>
                 <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
@@ -38,8 +38,8 @@
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/to_change_password" class="animated animated-short fadeInUp">
-                            <span class="fa fa-gear"></span> 设置密码 </a>
+                        <a href="/user/to_change_password" class="animated animated-short fadeInUp">
+                            <span class="fa fa-gear"></span> 修改密码 </a>
                     </li>
                     <li class="dropdown-footer">
                         <a href="/quit" class="">
@@ -55,10 +55,10 @@
                 <div class="sidebar-widget author-widget">
                     <div class="media">
                         <a class="media-left" href="#">
-                            <img src="/assets/img/avatars/3.jpg" class="img-responsive">
+                            <img src="/assets/img/avatars/3.jpg" class="img-responsive" alt="头像">
                         </a>
                         <div class="media-body">
-                            <div class="media-author">${sessionScope.user.name}---${sessionScope.user.post}</div>
+                            <div class="media-author">${sessionScope.USER.name}---用户</div>
                             <div class="media-links">
                                 <a href="/quit">退出</a>
                             </div>
@@ -70,14 +70,14 @@
                         <span class="input-group-addon">
                             <i class="fa fa-search"></i>
                         </span>
-                        <input type="text" id="sidebar-search" class="form-control" placeholder="Search...">
+                        <label for="sidebar-search"></label><input type="text" id="sidebar-search" class="form-control" placeholder="Search...">
                     </div>
                 </div>
             </header>
             <ul class="nav sidebar-menu">
                 <%--                <li class="sidebar-label pt20">预约看板</li>--%>
                 <li>
-                    <a href="/claim_voucher/deal">
+                    <a href="/reservation/table">
                         <span class="glyphicon glyphicon-book"></span>
                         <span class="sidebar-title">预约看板</span>
                         <%--                        <span class="sidebar-title-tray">--%>
@@ -86,13 +86,13 @@
                     </a>
                 </li>
                 <li class="active">
-                    <a href="/claim_voucher/self">
+                    <a href="/reservation/list">
                         <span class="glyphicon glyphicon-home"></span>
                         <span class="sidebar-title">我的预约</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/claim_voucher/to_add">
+                    <a href="/reservation/add">
                         <span class="fa fa-calendar"></span>
                         <span class="sidebar-title">预约申请</span>
                     </a>

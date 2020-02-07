@@ -18,7 +18,7 @@
 <div id="main">
     <header class="navbar navbar-fixed-top navbar-shadow">
         <div class="navbar-branding">
-            <a class="navbar-brand" href="dashboard.html">
+            <a class="navbar-brand">
                 <b>会议室预约管理平台</b>
             </a>
             <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
@@ -27,19 +27,19 @@
             <li class="dropdown menu-merge">
                 <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
                     <img src="/assets/img/avatars/5.jpg" alt="avatar" class="mw30 br64">
-                    <span class="hidden-xs pl15"> ${sessionScope.Administrator.name} </span>
+                    <span class="hidden-xs pl15"> ${sessionScope.ADMINISTRATOR.name} </span>
                     <span class="caret caret-tp hidden-xs"></span>
                 </a>
                 <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
                     <li class="list-group-item">
-                        <a href="/self" class="animated animated-short fadeInUp">
+                        <a href="/administrator/detail" class="animated animated-short fadeInUp">
                             <span class="fa fa-user"></span> 个人信息
                             <span class="label label-warning"></span>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/to_change_password" class="animated animated-short fadeInUp">
-                            <span class="fa fa-gear"></span> 设置密码 </a>
+                        <a href="/administrator/to_change_password" class="animated animated-short fadeInUp">
+                            <span class="fa fa-gear"></span> 修改密码 </a>
                     </li>
                     <li class="dropdown-footer">
                         <a href="/quit" class="">
@@ -55,10 +55,10 @@
                 <div class="sidebar-widget author-widget">
                     <div class="media">
                         <a class="media-left" href="#">
-                            <img src="/assets/img/avatars/3.jpg" class="img-responsive">
+                            <img src="/assets/img/avatars/3.jpg" class="img-responsive" alt="头像">
                         </a>
                         <div class="media-body">
-                            <div class="media-author">${sessionScope.Administrator.name}---${sessionScope.Administrator.post}</div>
+                            <div class="media-author">${sessionScope.ADMINISTRATOR.name}---管理员</div>
                             <div class="media-links">
                                 <a href="/quit">退出</a>
                             </div>
@@ -70,16 +70,17 @@
                         <span class="input-group-addon">
                             <i class="fa fa-search"></i>
                         </span>
-                        <input type="text" id="sidebar-search" class="form-control" placeholder="Search...">
+                        <label for="sidebar-search"></label><input type="text" id="sidebar-search" class="form-control"
+                                                                   placeholder="Search...">
                     </div>
                 </div>
             </header>
             <ul class="nav sidebar-menu">
-                <li class="sidebar-label pt20">预约看板</li>
+                <li class="sidebar-label pt20">预约状态</li>
                 <li>
-                    <a href="/claim_voucher/deal">
+                    <a href="/reservation/table">
                         <span class="glyphicon glyphicon-book"></span>
-                        <span class="sidebar-title">预约状态</span>
+                        <span class="sidebar-title">预约看板</span>
                         <%--                        <span class="sidebar-title-tray">--%>
                         <%--                            <span class="label label-xs bg-primary">New</span>--%>
                         <%--                        </span>--%>
@@ -99,18 +100,18 @@
                 <%--                </li>--%>
                 <li class="sidebar-label pt15">预约审核管理</li>
                 <li>
-                    <a class="accordion-toggle" href="#">
+                    <a class="accordion-toggle" href="/reservation/audit">
                         <span class="fa fa-calendar"></span>
                         <span class="sidebar-title">预约审核</span>
                         <span class="caret"></span>
                     </a>
                     <ul class="nav sub-nav">
                         <li>
-                            <a href="/user/list">
+                            <a href="/audit/list">
                                 <span class="glyphicon glyphicon-calendar"></span> 审核记录 </a>
                         </li>
                         <li class="active">
-                            <a href="/user/to_add">
+                            <a href="/audit/pending">
                                 <span class="glyphicon glyphicon-check"></span> 待处理预约 </a>
                         </li>
                     </ul>

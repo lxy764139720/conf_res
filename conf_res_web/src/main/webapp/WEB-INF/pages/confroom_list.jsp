@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<jsp:include page="Administrator_top.jsp"/>
+<jsp:include page="administrator_top.jsp"/>
 
 <section id="content" class="table-layout animated fadeIn">
     <div class="tray tray-center">
@@ -15,7 +15,8 @@
                     <div class="row">
                         <div class="hidden-xs hidden-sm col-md-3">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default light">
+                                <button type="button" class="btn btn-default light"
+                                        onclick="window.location.href='/confroom/list';">
                                     <i class="fa fa-refresh"></i>
                                 </button>
                                 <button type="button" class="btn btn-default light">

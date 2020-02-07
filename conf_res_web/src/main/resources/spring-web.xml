@@ -27,4 +27,11 @@
         <!--<property name="suffix" value=".jsp"/>-->
     </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.project.conf_res.global.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

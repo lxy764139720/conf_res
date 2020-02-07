@@ -15,5 +15,7 @@ public interface AdministratorDao {
 
     Administrator selectById(Integer id);
 
+    Administrator selectByAccount(String account);
+
     List<Administrator> selectAll();
 }
