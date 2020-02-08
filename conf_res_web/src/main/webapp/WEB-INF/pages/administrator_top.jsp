@@ -106,13 +106,17 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="nav sub-nav">
-                        <li>
-                            <a href="/audit/list">
-                                <span class="glyphicon glyphicon-calendar"></span> 审核记录 </a>
-                        </li>
                         <li class="active">
                             <a href="/audit/pending">
                                 <span class="glyphicon glyphicon-check"></span> 待处理预约 </a>
+                        </li>
+                        <li>
+                            <a href="/audit/list">
+                                <span class="glyphicon glyphicon-calendar"></span> 所有预约 </a>
+                        </li>
+                        <li>
+                            <a href="/audit/list">
+                                <span class="glyphicon glyphicon-calendar"></span> 审核记录 </a>
                         </li>
                     </ul>
                 </li>

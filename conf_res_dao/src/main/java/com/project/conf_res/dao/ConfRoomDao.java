@@ -9,11 +9,11 @@ import java.util.List;
 public interface ConfRoomDao {
     void insert(ConfRoom confRoom);
 
-    void delete(Integer id);
+    void delete(int id);
 
     void update(ConfRoom confRoom);
 
-    ConfRoom selectById(Integer id);
+    ConfRoom selectById(int id);
 
     ConfRoom selectByName(String Name);
 

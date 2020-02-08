@@ -1,16 +1,21 @@
 package com.project.conf_res.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Reservation {
-    private Integer id;
-    private Integer uid;
-    private Integer rid;
-    private Integer member;
-    private LocalDate date;
-    private String time;
-    private LocalDateTime res_time;
+    private int id;
+    private int uid;
+    private int rid;
+    private int member;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date; //会议时间
+    private String time; //会议时段
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm")
+    private LocalDateTime resTime; //申请预约时间
+    private String state;
     private String usage;
     private String tel;
     private String info;
@@ -18,35 +23,35 @@ public class Reservation {
     private User user;
     private ConfRoom room;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getUid() {
+    public int getUid() {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(int uid) {
         this.uid = uid;
     }
 
-    public Integer getRid() {
+    public int getRid() {
         return rid;
     }
 
-    public void setRid(Integer rid) {
+    public void setRid(int rid) {
         this.rid = rid;
     }
 
-    public Integer getMember() {
+    public int getMember() {
         return member;
     }
 
-    public void setMember(Integer member) {
+    public void setMember(int member) {
         this.member = member;
     }
 
@@ -66,12 +71,20 @@ public class Reservation {
         this.time = time;
     }
 
-    public LocalDateTime getRes_time() {
-        return res_time;
+    public LocalDateTime getResTime() {
+        return resTime;
     }
 
-    public void setRes_time(LocalDateTime res_time) {
-        this.res_time = res_time;
+    public void setResTime(LocalDateTime resTime) {
+        this.resTime = resTime;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getUsage() {

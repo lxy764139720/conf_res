@@ -92,7 +92,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/reservation/add">
+                    <a href="/reservation/to_confroom">
                         <span class="fa fa-calendar"></span>
                         <span class="sidebar-title">预约申请</span>
                     </a>

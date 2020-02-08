@@ -20,7 +20,7 @@ public class ConfRoomServiceImpl implements ConfRoomService {
     }
 
     @Override
-    public void remove(Integer id) {
+    public void remove(int id) {
         this.confRoomDao.delete(id);
     }
 
@@ -30,7 +30,7 @@ public class ConfRoomServiceImpl implements ConfRoomService {
     }
 
     @Override
-    public ConfRoom get(Integer id) {
+    public ConfRoom get(int id) {
         return this.confRoomDao.selectById(id);
     }
 

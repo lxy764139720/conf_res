@@ -12,17 +12,17 @@ import java.util.List;
 public interface ReservationDao {
     void insert(Reservation reservation);
 
-    void delete(Integer id);
+    void delete(int id);
 
     void deleteOverdue(LocalDate date);
 
     void update(Reservation reservation);
 
-    Reservation selectById(Integer id);
+    Reservation selectById(int id);
 
-    List<Reservation> selectByUid(@Param("uid") Integer uid, @Param("date") LocalDate date);
+    List<Reservation> selectByUid(@Param("uid") int uid, @Param("date") LocalDate date);
 
-    List<Reservation> selectByRid(@Param("rid") Integer rid, @Param("date") LocalDate date);
+    List<Reservation> selectByRid(@Param("rid") int rid, @Param("date") LocalDate date);
 
-    List<Reservation> selectAll();
+    List<Reservation> selectAll(LocalDate date);
 }

@@ -1,9 +1,7 @@
 package com.project.conf_res.global;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Contant {
 
@@ -47,13 +45,13 @@ public class Contant {
     }
 
     //审核结果
-    public static final String AUDIT_RESULT_WAITING = "待审核";
+    public static final String AUDIT_RESULT_PENDING = "待审核";
     public static final String AUDIT_RESULT_PASS = "已通过";
     public static final String AUDIT_RESULT_REJECT = "已拒绝";
 
     public static List<String> getAuditResult() {
         List<String> list = new ArrayList<>();
-        list.add(AUDIT_RESULT_WAITING);
+        list.add(AUDIT_RESULT_PENDING);
         list.add(AUDIT_RESULT_PASS);
         list.add(AUDIT_RESULT_REJECT);
         return list;

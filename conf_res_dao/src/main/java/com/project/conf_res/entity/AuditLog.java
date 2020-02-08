@@ -3,10 +3,10 @@ package com.project.conf_res.entity;
 import java.time.LocalDateTime;
 
 public class AuditLog {
-    private Integer id;
-    private Integer uid;
-    private Integer rid;
-    private Integer aid;
+    private int id;
+    private int uid;
+    private int rid;
+    private int aid;
     private LocalDateTime auditTime;
     private String auditResult;
     private String info;
@@ -15,35 +15,35 @@ public class AuditLog {
     private Reservation reservation;
     private Administrator auditor;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getUid() {
+    public int getUid() {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(int uid) {
         this.uid = uid;
     }
 
-    public Integer getRid() {
+    public int getRid() {
         return rid;
     }
 
-    public void setRid(Integer rid) {
+    public void setRid(int rid) {
         this.rid = rid;
     }
 
-    public Integer getAid() {
+    public int getAid() {
         return aid;
     }
 
-    public void setAid(Integer aid) {
+    public void setAid(int aid) {
         this.aid = aid;
     }
 

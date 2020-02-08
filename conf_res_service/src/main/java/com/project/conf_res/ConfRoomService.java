@@ -7,11 +7,11 @@ import java.util.List;
 public interface ConfRoomService {
     void add(ConfRoom confRoom);
 
-    void remove(Integer id);
+    void remove(int id);
 
     void edit(ConfRoom confRoom);
 
-    ConfRoom get(Integer id);
+    ConfRoom get(int id);
 
     List<ConfRoom> getAll();
 }

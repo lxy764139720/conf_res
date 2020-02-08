@@ -9,11 +9,11 @@ import java.util.List;
 public interface UserDao {
     void insert(User user);
 
-    void delete(Integer id);
+    void delete(int id);
 
     void update(User user);
 
-    User selectById(Integer id);
+    User selectById(int id);
 
     User selectByAccount(String account);
 

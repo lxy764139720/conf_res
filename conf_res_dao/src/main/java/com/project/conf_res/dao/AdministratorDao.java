@@ -9,11 +9,11 @@ import java.util.List;
 public interface AdministratorDao {
     void insert(Administrator administrator);
 
-    void delete(Integer id);
+    void delete(int id);
 
     void update(Administrator administrator);
 
-    Administrator selectById(Integer id);
+    Administrator selectById(int id);
 
     Administrator selectByAccount(String account);
 

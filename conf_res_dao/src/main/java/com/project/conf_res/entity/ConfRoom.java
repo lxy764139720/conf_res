@@ -1,17 +1,17 @@
 package com.project.conf_res.entity;
 
 public class ConfRoom {
-    private Integer id;
+    private int id;
     private String name;
-    private Integer member;
+    private int member;
     private String location;
     private String state;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -23,11 +23,11 @@ public class ConfRoom {
         this.name = name;
     }
 
-    public Integer getMember() {
+    public int getMember() {
         return member;
     }
 
-    public void setMember(Integer member) {
+    public void setMember(int member) {
         this.member = member;
     }
 

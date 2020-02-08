@@ -10,17 +10,15 @@ import java.util.List;
 public interface AuditLogDao {
     void insert(AuditLog auditLog);
 
-    void delete(Integer id);
-
-    void deleteOverdue(LocalDateTime date);
+    void delete(int id);
 
     void update(AuditLog auditLog);
 
-    AuditLog selectById(Integer id);
+    AuditLog selectById(int id);
 
-    List<AuditLog> selectByUid(Integer uid);
+    List<AuditLog> selectByUid(int uid);
 
-    List<AuditLog> selectByRid(Integer rid);
+    List<AuditLog> selectByRid(int rid);
 
     List<AuditLog> selectAll();
 }

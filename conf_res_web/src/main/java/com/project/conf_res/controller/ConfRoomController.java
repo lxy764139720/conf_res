@@ -35,7 +35,7 @@ public class ConfRoomController {
     }
 
     @RequestMapping(value = "/to_edit", params = "id")
-    public String to_edit(Integer id, Map<String, Object> map) {
+    public String to_edit(int id, Map<String, Object> map) {
         map.put("ROOM", this.confRoomService.get(id)); //与下面edit函数参数名称保持一致
         map.put("STATE", Contant.getRoomState());
         return "confroom_edit.jsp";
@@ -48,7 +48,7 @@ public class ConfRoomController {
     }
 
     @RequestMapping(value = "/remove", params = "id")
-    public String remove(Integer id) {
+    public String remove(int id) {
         this.confRoomService.remove(id);
         return "redirect:list";
     }
