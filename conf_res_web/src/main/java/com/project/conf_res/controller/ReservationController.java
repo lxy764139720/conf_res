@@ -63,9 +63,19 @@ public class ReservationController {
 
     @RequestMapping(value = "/to_edit", params = "id")
     public String toEdit(int id, Map<String, Object> map) {
-        map.put("RESERVATION", this.reservationService.getById(id));
+        Reservation reservation = this.reservationService.getById(id);
+        reservation.setRoom(this.confRoomService.get(reservation.getRid()));
+        map.put("RESERVATION", reservation);
         map.put("TIME", Contant.getTime());
         return "reservation_edit.jsp";
+    }
+
+    @RequestMapping(value = "/user_detail", params = "id")
+    public String detail(int id, Map<String, Object> map) {
+        Reservation reservation = this.reservationService.getById(id);
+        reservation.setRoom(this.confRoomService.get(reservation.getRid()));
+        map.put("RESERVATION", reservation);
+        return "reservation_user_detail.jsp";
     }
 
     @RequestMapping("/edit")

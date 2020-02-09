@@ -1,9 +1,7 @@
 package com.project.conf_res;
 
 import com.project.conf_res.entity.Reservation;
-import org.apache.ibatis.annotations.Param;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface ReservationService {

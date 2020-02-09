@@ -68,6 +68,7 @@
                                 <td><spring:eval expression="reservation.resTime"/></td>
                                 <td>${reservation.state}</td>
                                 <td>
+                                    <a href="<c:url value="/reservation/user_detail?id=${reservation.id}"/>">查看</a>
                                     <a href="<c:url value="/reservation/to_edit?id=${reservation.id}"/>">编辑</a>
                                     <a href="<c:url value="/reservation/remove?id=${reservation.id}"/>">删除</a>
                                 </td>
