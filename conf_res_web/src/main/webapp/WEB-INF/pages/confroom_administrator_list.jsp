@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<jsp:include page="user_top.jsp"/>
+<jsp:include page="administrator_top.jsp"/>
 
 <section id="content" class="table-layout animated fadeIn">
     <div class="tray tray-center">
@@ -16,8 +16,12 @@
                         <div class="hidden-xs hidden-sm col-md-3">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default light"
-                                        onclick="window.location.href='/reservation/to_add';">
+                                        onclick="window.location.href='/confroom/list';">
                                     <i class="fa fa-refresh"></i>
+                                </button>
+                                <button type="button" class="btn btn-default light"
+                                        onclick="window.location.href='/confroom/to_add';">
+                                    <i class="fa fa-plus"></i>
                                 </button>
                             </div>
                         </div>
@@ -59,11 +63,10 @@
                                 <td>${room.member}</td>
                                 <td>${room.location}</td>
                                 <td>${room.state}</td>
-                                <c:if test="${room.state == '开放'}">
-                                    <td>
-                                        <a href="<c:url value="/reservation/to_add?id=${room.id}"/>">预约</a>
-                                    </td>
-                                </c:if>
+                                <td>
+                                    <a href="<c:url value="/confroom/to_edit?id=${room.id}"/>">编辑</a>
+                                    <a href="<c:url value="/confroom/remove?id=${room.id}"/>">删除</a>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

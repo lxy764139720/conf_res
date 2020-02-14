@@ -107,11 +107,11 @@
                     </a>
                     <ul class="nav sub-nav">
                         <li class="active">
-                            <a href="/audit/pending">
+                            <a href="/reservation/pending">
                                 <span class="glyphicon glyphicon-check"></span> 待处理预约 </a>
                         </li>
                         <li>
-                            <a href="/audit/list">
+                            <a href="/reservation/administrator_list">
                                 <span class="glyphicon glyphicon-calendar"></span> 所有预约 </a>
                         </li>
                         <li>

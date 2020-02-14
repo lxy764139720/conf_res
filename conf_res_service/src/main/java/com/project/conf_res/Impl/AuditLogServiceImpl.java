@@ -19,7 +19,6 @@ public class AuditLogServiceImpl implements AuditLogService {
     @Override
     public void add(AuditLog auditLog) {
         auditLog.setAuditTime(LocalDateTime.now());
-        auditLog.setAuditResult(Contant.AUDIT_RESULT_PENDING);
         this.auditLogDao.insert(auditLog);
     }
 

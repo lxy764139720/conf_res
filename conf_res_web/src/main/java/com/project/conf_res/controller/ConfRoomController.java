@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
 import java.util.Map;
 
 @Controller("confRoomController")
@@ -19,7 +18,7 @@ public class ConfRoomController {
     @RequestMapping("/list")
     public String list(Map<String, Object> map) {
         map.put("LIST", this.confRoomService.getAll());
-        return "confroom_list.jsp";
+        return "confroom_administrator_list.jsp";
     }
 
     @RequestMapping("/to_add")

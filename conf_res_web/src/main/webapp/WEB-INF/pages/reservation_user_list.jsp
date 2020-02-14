@@ -17,11 +17,8 @@
                         <div class="hidden-xs hidden-sm col-md-3">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default light"
-                                        onclick="window.location.href='/reservation/list';">
+                                        onclick="window.location.href='/reservation/user_list';">
                                     <i class="fa fa-refresh"></i>
-                                </button>
-                                <button type="button" class="btn btn-default light">
-                                    <i class="fa fa-trash"></i>
                                 </button>
                                 <button type="button" class="btn btn-default light"
                                         onclick="window.location.href='/reservation/to_confroom';">
@@ -45,7 +42,7 @@
                     <table id="message-table" class="table admin-form theme-warning tc-checkbox-1">
                         <thead>
                         <tr class="">
-                            <th class="text-center hidden-xs">Select</th>
+                            <%--                            <th class="text-center hidden-xs">Select</th>--%>
                             <th class="hidden-xs">预约会议室</th>
                             <th class="hidden-xs">预约日期</th>
                             <th class="hidden-xs">申请时间</th>
@@ -57,12 +54,12 @@
                         <%--@elvariable id="LIST" type="java.util.List"--%>
                         <c:forEach items="${LIST}" var="reservation">
                             <tr class="message-unread">
-                                <td class="hidden-xs">
-                                    <label class="option block mn">
-                                        <input type="checkbox" name="mobileos" value="FR">
-                                        <span class="checkbox mn"></span>
-                                    </label>
-                                </td>
+                                    <%--                                <td class="hidden-xs">--%>
+                                    <%--                                    <label class="option block mn">--%>
+                                    <%--                                        <input type="checkbox" name="mobileos" value="FR">--%>
+                                    <%--                                        <span class="checkbox mn"></span>--%>
+                                    <%--                                    </label>--%>
+                                    <%--                                </td>--%>
                                 <td>${reservation.room.name}</td>
                                 <td><spring:eval expression="reservation.date"/></td>
                                 <td><spring:eval expression="reservation.resTime"/></td>

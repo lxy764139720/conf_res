@@ -19,5 +19,7 @@ public interface ReservationService {
 
     List<Reservation> getByRid(int rid);
 
+    List<Reservation> getPending();
+
     List<Reservation> getAll();
 }

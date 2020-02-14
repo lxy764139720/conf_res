@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li class="active">
-                    <a href="/reservation/list">
+                    <a href="/reservation/user_list">
                         <span class="glyphicon glyphicon-home"></span>
                         <span class="sidebar-title">我的预约</span>
                     </a>

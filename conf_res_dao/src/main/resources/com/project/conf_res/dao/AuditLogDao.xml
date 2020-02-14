@@ -3,9 +3,9 @@
 <mapper namespace="com.project.conf_res.dao.AuditLogDao">
     <resultMap id="resultMap" type="AuditLog">
         <id property="id" column="id" javaType="Integer"/>
-        <result property="aid" column="aid" javaType="String"/>
-        <result property="uid" column="uid" javaType="String"/>
-        <result property="rid" column="rid" javaType="String"/>
+        <result property="aid" column="aid" javaType="Integer"/>
+        <result property="uid" column="uid" javaType="Integer"/>
+        <result property="rid" column="rid" javaType="Integer"/>
         <result property="auditTime" column="audit_time" javaType="java.time.LocalDateTime"/>
         <result property="auditResult" column="audit_result" javaType="String"/>
         <result property="info" column="info" javaType="String"/>

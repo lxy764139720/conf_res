@@ -55,6 +55,11 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
+    public List<Reservation> getPending(){
+        return this.reservationDao.selectPending(LocalDate.now());
+    }
+
+    @Override
     public List<Reservation> getAll() {
         return this.reservationDao.selectAll(LocalDate.now());
     }
