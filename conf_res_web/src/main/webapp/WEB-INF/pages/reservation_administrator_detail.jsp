@@ -52,37 +52,33 @@
                         <div class="col-md-10">${RESERVATION.state}</div>
                     </div>
                     <c:if test="${RESERVATION.state == '待审核'}">
-                        <form:form id="admin-form" name="addForm" action=""
-                                   modelAttribute="AUDITLOG">
-                            <div class="section" id="items">
-                                <label for="info" class="field prepend-icon">
-                                    <form:input path="info" cssClass="gui-input" placeholder="审核备注"/>
-                                    <label for="info" class="field-icon">
-                                        <i class="fa fa-info"></i>
+                        <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
+                            <form id="result-form" name="resultForm" action="/audit/pass">
+                                <div class="section" id="items">
+                                    <label for="info" class="field prepend-icon">
+                                        <input id="info" name="info" class="gui-input" placeholder="添加审核备注"/>
+                                        <label for="info" class="field-icon">
+                                            <i class="fa fa-info"></i>
+                                        </label>
                                     </label>
+                                </div>
+                                <label>
+                                    <input id="rid" name="rid" class="gui-input" type="hidden"
+                                           value="${RESERVATION.id}"/>
                                 </label>
-                            </div>
-                        </form:form>
+                                <div class="panel-footer text-right">
+                                    <input type="submit" class="button" value="通过">
+                                    <input type="submit" class="button" formaction="/audit/reject" value="拒绝">
+                                    <button type="button" class="button" onclick="window.history.go(-1);"> 返回</button>
+                                </div>
+                            </form>
+                        </div>
                     </c:if>
-                    <div class="section row">
-                    </div>
-                    <div class="panel-footer text-right">
-                        <button type="button" class="button" onclick="window.history.go(-1);"> 返回</button>
-                        <c:if test="${RESERVATION.state == '待审核'}">
-                            <button type="button" class="button" id="pass"
-                                    onclick="if(document.getElementById('admin-form')){
-                                            document.getElementById('admin-form').action='/audit/pass'
-                                            ;document.getElementById('admin-form').submit()}
-                                            window.location.href='/audit/pass?id=${RESERVATION.id}'"> 通过
-                            </button>
-                            <button type="button" class="button" id="reject"
-                                    onclick="if(document.getElementById('admin-form')){
-                                            document.getElementById('admin-form').action='/audit/reject'
-                                            ;document.getElementById('admin-form').submit()}
-                                            window.location.href='/audit/reject?id=${RESERVATION.id}'"> 拒绝
-                            </button>
-                        </c:if>
-                    </div>
+                    <c:if test="${RESERVATION.state != '待审核'}">
+                        <div class="panel-footer text-right">
+                            <button type="button" class="button" onclick="window.history.go(-1);"> 返回</button>
+                        </div>
+                    </c:if>
                 </div>
             </div>
         </div>

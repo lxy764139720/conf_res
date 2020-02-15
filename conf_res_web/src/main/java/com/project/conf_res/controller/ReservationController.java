@@ -108,12 +108,11 @@ public class ReservationController {
         return "reservation_administrator_list.jsp";
     }
 
-    @RequestMapping(value = "/administrator_detail", params = "id")
-    public String administrator_detail(int id, Map<String, Object> map) {
-        Reservation reservation = this.reservationService.getById(id);
+    @RequestMapping(value = "/administrator_detail", params = "rid")
+    public String administrator_detail(int rid, Map<String, Object> map) {
+        Reservation reservation = this.reservationService.getById(rid);
         reservation.setRoom(this.confRoomService.get(reservation.getRid()));
         map.put("RESERVATION", reservation);
-        map.put("AUDITLOG", new AuditLog());
         return "reservation_administrator_detail.jsp";
     }
 }

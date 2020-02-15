@@ -64,9 +64,9 @@
                                 <td><spring:eval expression="reservation.user.name"/></td>
                                 <td>${reservation.state}</td>
                                 <td>
-                                    <a href="<c:url value="/audit/pass?id=${reservation.id}"/>">通过</a>
-                                    <a href="<c:url value="/audit/reject?id=${reservation.id}"/>">拒绝</a>
-                                    <a href="<c:url value="/reservation/administrator_detail?id=${reservation.id}"/>">查看</a>
+                                    <a href="<c:url value="/reservation/administrator_detail?rid=${reservation.id}"/>">查看</a>
+                                    <a href="<c:url value="/audit/pass?rid=${reservation.id}"/>">通过</a>
+                                    <a href="<c:url value="/audit/reject?rid=${reservation.id}"/>">拒绝</a>
                                 </td>
                             </tr>
                         </c:forEach>
