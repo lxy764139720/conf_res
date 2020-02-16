@@ -24,6 +24,8 @@ public interface ReservationDao {
 
     List<Reservation> selectByRid(@Param("rid") int rid, @Param("date") LocalDate date);
 
+    List<Reservation> selectForTable(@Param("rid") int rid, @Param("date1") LocalDate monday, @Param("date2") LocalDate sunday);
+
     List<Reservation> selectPending(LocalDate date);
 
     List<Reservation> selectAll(LocalDate date);

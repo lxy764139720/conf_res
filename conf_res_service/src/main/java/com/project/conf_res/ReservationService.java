@@ -2,6 +2,7 @@ package com.project.conf_res;
 
 import com.project.conf_res.entity.Reservation;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ReservationService {
@@ -18,6 +19,8 @@ public interface ReservationService {
     List<Reservation> getByUid(int uid);
 
     List<Reservation> getByRid(int rid);
+
+    List<Reservation> getForTable(int rid, int weekId);
 
     List<Reservation> getPending();
 

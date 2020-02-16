@@ -78,7 +78,7 @@
             <ul class="nav sidebar-menu">
                 <li class="sidebar-label pt20">预约状态</li>
                 <li>
-                    <a href="/reservation/table">
+                    <a href="/reservation/administrator_table">
                         <span class="glyphicon glyphicon-book"></span>
                         <span class="sidebar-title">预约看板</span>
                         <%--                        <span class="sidebar-title-tray">--%>
@@ -146,7 +146,7 @@
                     </a>
                     <ul class="nav sub-nav">
                         <li>
-                            <a href="/confroom/list">
+                            <a href="/confroom/administrator_list">
                                 <span class="glyphicon glyphicon-calendar"></span> 所有会议室 </a>
                         </li>
                         <li class="active">

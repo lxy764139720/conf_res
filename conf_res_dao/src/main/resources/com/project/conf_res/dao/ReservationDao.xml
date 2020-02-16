@@ -70,6 +70,15 @@
           and `state` = '待审核'
         ORDER BY `res_time` DESC
     </select>
+    <select id="selectForTable" resultMap="resultMap">
+        SELECT *
+        FROM reservation
+        WHERE `rid` = #{rid}
+          and `state` = '已通过'
+          and `date` &gt;= #{date1}
+          and `date` &lt;= #{date2}
+        ORDER BY `res_time` DESC
+    </select>
     <select id="selectAll" resultMap="resultMap">
         SELECT *
         FROM reservation

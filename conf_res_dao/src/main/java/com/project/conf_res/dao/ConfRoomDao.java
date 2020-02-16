@@ -17,5 +17,7 @@ public interface ConfRoomDao {
 
     ConfRoom selectByName(String Name);
 
+    List<ConfRoom> selectAllOpen();
+
     List<ConfRoom> selectAll();
 }

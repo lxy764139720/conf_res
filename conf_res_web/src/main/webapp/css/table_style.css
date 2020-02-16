@@ -1,0 +1,153 @@
+.dataDiv {
+    text-align: center;
+    background: white;
+    float: left;
+    border: 0 solid red;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.dataDiv .dataHeader {
+    width: 100%;
+    height: 60px;
+}
+
+.dataDiv .dataHeader1 {
+    width: 94%;
+    height: 60px;
+    line-height: 60px;
+    color: #222222;
+    margin: 0 auto;
+    border: 0 solid red;
+}
+
+.dataDiv .dataHeader div {
+    width: 96%;
+    margin: auto;
+    text-align: left;
+}
+
+.dataDiv .dataBody {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    /*background: red;*/
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+    margin: auto;
+}
+
+th,
+td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+td > div {
+    color: #FFFFFF;
+}
+
+table tr {
+    height: 32px;
+}
+
+.resTable {
+    width: 96%;
+    /*height: 96%;*/
+    flex: 1;
+}
+
+.resTable tr:first-child {
+    background: #F2F2F2;
+    color: #222222;
+}
+
+.resTable tr > td:first-child {
+    color: #222222;
+}
+
+.resTable div {
+    width: 90%;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 2px;
+    margin: auto;
+    cursor: pointer;
+    /*background: red;*/
+    overflow: hidden;
+}
+
+.dataHeader1 div {
+    float: left;
+    font-weight: 900;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 5px;
+    height: 36px;
+}
+
+.more {
+    float: right;
+    color: #888888;
+}
+
+.checked {
+    color: #4474C9;
+    border-bottom: 2px solid #4474C9;
+}
+
+.shDataTable {
+    width: 96%;
+    /*height: 100%;*/
+    border-collapse: collapse;
+    border-top: 1px solid #F3F3F3;
+    margin: 0 auto;
+    color: #222222;
+    text-align: left;
+}
+
+.shDataTable tr {
+    height: 30px;
+    border-bottom: 1px solid #F3F3F3;
+}
+
+.shDataTable td {
+    line-height: 30px;
+}
+
+.ggDataTable tr:first-child {
+    background: #F2F2F2;
+    /*color: #222222;*/
+}
+
+.ggDataTable tr > td:first-child {
+    text-align: left;
+}
+
+.ggDataTable div {
+    width: 90%;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 2px;
+    margin: auto;
+    cursor: pointer;
+    /*background: red;*/
+    overflow: hidden;
+}
+
+.site table {
+    width: 96%;
+    text-align: left;
+}
+
+.site table tr {
+    height: 25px;
+}

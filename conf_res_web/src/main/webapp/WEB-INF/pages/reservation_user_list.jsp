@@ -21,7 +21,7 @@
                                     <i class="fa fa-refresh"></i>
                                 </button>
                                 <button type="button" class="btn btn-default light"
-                                        onclick="window.location.href='/reservation/to_confroom';">
+                                        onclick="window.location.href='/confroom/user_list';">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </div>

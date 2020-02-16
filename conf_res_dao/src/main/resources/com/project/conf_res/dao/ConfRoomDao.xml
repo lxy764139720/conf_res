@@ -35,6 +35,11 @@
         FROM conf_room
         WHERE `name` = #{name}
     </select>
+    <select id="selectAllOpen" resultMap="resultMap">
+        SELECT *
+        FROM conf_room
+        WHERE `state` = '开放'
+    </select>
     <select id="selectAll" resultMap="resultMap">
         SELECT *
         FROM conf_room

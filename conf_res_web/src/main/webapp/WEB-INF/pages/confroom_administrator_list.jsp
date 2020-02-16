@@ -16,7 +16,7 @@
                         <div class="hidden-xs hidden-sm col-md-3">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default light"
-                                        onclick="window.location.href='/confroom/list';">
+                                        onclick="window.location.href='/confroom/administrator_list';">
                                     <i class="fa fa-refresh"></i>
                                 </button>
                                 <button type="button" class="btn btn-default light"

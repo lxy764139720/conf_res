@@ -77,7 +77,7 @@
             <ul class="nav sidebar-menu">
                 <%--                <li class="sidebar-label pt20">预约看板</li>--%>
                 <li>
-                    <a href="/reservation/table">
+                    <a href="/reservation/user_table">
                         <span class="glyphicon glyphicon-book"></span>
                         <span class="sidebar-title">预约看板</span>
                         <%--                        <span class="sidebar-title-tray">--%>
@@ -92,7 +92,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/reservation/to_confroom">
+                    <a href="/confroom/user_list">
                         <span class="fa fa-calendar"></span>
                         <span class="sidebar-title">预约申请</span>
                     </a>
