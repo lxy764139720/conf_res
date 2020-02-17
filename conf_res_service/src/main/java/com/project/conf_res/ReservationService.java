@@ -20,6 +20,8 @@ public interface ReservationService {
 
     List<Reservation> getByRid(int rid);
 
+    List<Reservation> getExist(LocalDate date, String time);
+
     List<Reservation> getForTable(int rid, int weekId);
 
     List<Reservation> getPending();

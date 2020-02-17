@@ -58,6 +58,11 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
+    public List<Reservation> getExist(LocalDate date, String time) {
+        return this.reservationDao.selectExist(date, time);
+    }
+
+    @Override
     public List<Reservation> getForTable(int rid, int weekId) {
         LocalDate monday = this.getWeekDate().get("mondayDate");
         LocalDate sunday = this.getWeekDate().get("sundayDate");

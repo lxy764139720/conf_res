@@ -9,10 +9,16 @@ import com.project.conf_res.entity.User;
 import com.project.conf_res.global.Contant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,27 +43,45 @@ public class ReservationController {
     }
 
     @RequestMapping("/user_list")
-    public String user_list(Map<String, Object> map) {
-        map.put("LIST", this.reservationService.getAll());
+    public String user_list(HttpSession session, Map<String, Object> map) {
+        map.put("LIST", this.reservationService.getByUid(((User) session.getAttribute("USER")).getId()));
         return "reservation_user_list.jsp";
     }
 
     @RequestMapping(value = "/to_add", params = "id")
     public String toAdd(int id, HttpSession session, Map<String, Object> map) {
-        Reservation reservation = new Reservation();
-        reservation.setRid(id);
-        reservation.setRoom(this.confRoomService.getById(id));
-        map.put("RESERVATION", reservation);
-        map.put("TIME", Contant.getTime());
+        if (map.get("RESERVATION") == null) {
+            Reservation reservation = new Reservation();
+            reservation.setRid(id);
+            reservation.setRoom(this.confRoomService.getById(id));
+            map.put("RESERVATION", reservation);
+            map.put("TIME", Contant.getTime());
+        }
         return "reservation_add.jsp";
     }
 
     @RequestMapping("/add")
-    public String add(HttpSession session, Reservation RESERVATION) {
-        RESERVATION.setUser((User) session.getAttribute("USER"));
-        RESERVATION.setUid(RESERVATION.getUser().getId());
-        this.reservationService.add(RESERVATION);
-        return "redirect:/reservation/user_list";
+    public String add(HttpSession session, @Valid Reservation RESERVATION, BindingResult result, Map<String, Object> map, RedirectAttributes model) {
+        List<String> msgList = new ArrayList<>();
+        if (result.hasErrors()) {
+            List<FieldError> errList = result.getFieldErrors();
+            for (int i = 0; i < errList.size(); ++i) {
+                msgList.add(errList.get(i).getDefaultMessage());
+            }
+            model.addFlashAttribute("MESSAGE", msgList);
+            return "redirect:/reservation/to_add?id=" + RESERVATION.getRid();
+        } else if (!this.reservationService.getExist(RESERVATION.getDate(), RESERVATION.getTime()).isEmpty()) {
+            msgList.add("请选择其他时段");
+            model.addFlashAttribute("MESSAGE", msgList);
+            return "redirect:/reservation/to_add?id=" + RESERVATION.getRid();
+        } else {
+            RESERVATION.setUser((User) session.getAttribute("USER"));
+            RESERVATION.setUid(RESERVATION.getUser().getId());
+            this.reservationService.add(RESERVATION);
+            msgList.add("已提交申请");
+            model.addFlashAttribute("MESSAGE", msgList);
+            return "redirect:/reservation/user_list";
+        }
     }
 
     @RequestMapping(value = "/to_edit", params = "id")

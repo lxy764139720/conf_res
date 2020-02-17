@@ -63,6 +63,13 @@
         WHERE `rid` = #{rid}
           and `date` &gt;= #{date}
     </select>
+    <select id="selectExist" resultMap="resultMap">
+        SELECT *
+        FROM reservation
+        WHERE `date` = #{date}
+          and `time` = #{time}
+          and `state` = '已通过'
+    </select>
     <select id="selectPending" resultMap="resultMap">
         SELECT *
         FROM reservation
