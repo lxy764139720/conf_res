@@ -12,6 +12,16 @@
     <link rel="stylesheet" type="text/css" href="/assets/skin/default_skin/css/theme.css">
     <link rel="stylesheet" type="text/css" href="/assets/admin-tools/admin-forms/css/admin-forms.css">
     <link rel="shortcut icon" href="/assets/img/favicon.ico">
+    <script src="/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+    <script src="/assets/admin-tools/admin-forms/js/jquery.validate.min.js"></script>
+    <script src="/assets/admin-tools/admin-forms/js/additional-methods.min.js"></script>
+    <script src="/assets/admin-tools/admin-forms/js/jquery-ui-datepicker.min.js"></script>
+    <script src="/assets/js/utility/utility.js"></script>
+    <script src="/assets/js/demo/demo.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script type="text/javascript" src="/js/pages.js"></script>
+    <script type="text/javascript" src="/js/items.js"></script>
 </head>
 
 <body class="admin-validation-page" data-spy="scroll" data-target="#nav-spy" data-offset="200">

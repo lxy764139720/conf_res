@@ -1,6 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="administrator_top.jsp"/>
+
+<script type="text/javascript">
+    <c:forEach items="${MESSAGE}" var="msg">
+    alert("${msg}");
+    </c:forEach>
+</script>
 <section id="content" class="table-layout animated fadeIn">
     <div class="tray tray-center">
         <div class="content-header">

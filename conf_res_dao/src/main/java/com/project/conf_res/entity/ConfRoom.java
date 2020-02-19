@@ -1,16 +1,13 @@
 package com.project.conf_res.entity;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 public class ConfRoom {
     private int id;
-    @NotNull(message = "会议室名不能为空")
-    @NotEmpty(message = "会议室名不能为空")
+    @NotBlank(message = "会议室名不能为空")
     private String name;
     private int member;
-    @NotNull(message = "会议室位置不能为空")
-    @NotEmpty(message = "会议室位置不能为空")
+    @NotBlank(message = "会议室位置不能为空")
     private String location;
     private String state;
 

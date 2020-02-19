@@ -61,7 +61,7 @@ public class ReservationController {
     }
 
     @RequestMapping("/add")
-    public String add(HttpSession session, @Valid Reservation RESERVATION, BindingResult result, Map<String, Object> map, RedirectAttributes model) {
+    public String add(HttpSession session, @Valid Reservation RESERVATION, BindingResult result, RedirectAttributes model) {
         List<String> msgList = new ArrayList<>();
         if (result.hasErrors()) {
             List<FieldError> errList = result.getFieldErrors();
@@ -93,6 +93,30 @@ public class ReservationController {
         return "reservation_edit.jsp";
     }
 
+    @RequestMapping("/edit")
+    public String edit(HttpSession session, @Valid Reservation RESERVATION, BindingResult result, RedirectAttributes model) {
+        List<String> msgList = new ArrayList<>();
+        if (result.hasErrors()) {
+            List<FieldError> errList = result.getFieldErrors();
+            for (int i = 0; i < errList.size(); ++i) {
+                msgList.add(errList.get(i).getDefaultMessage());
+            }
+            model.addFlashAttribute("MESSAGE", msgList);
+            return "redirect:/reservation/to_edit?id=" + RESERVATION.getRid();
+        } else if (!this.reservationService.getExist(RESERVATION.getDate(), RESERVATION.getTime()).isEmpty()) {
+            msgList.add("请选择其他时段");
+            model.addFlashAttribute("MESSAGE", msgList);
+            return "redirect:/reservation/to_edit?id=" + RESERVATION.getRid();
+        } else {
+            RESERVATION.setUser((User) session.getAttribute("USER"));
+            RESERVATION.setUid(RESERVATION.getUser().getId());
+            this.reservationService.edit(RESERVATION);
+            msgList.add("已修改申请");
+            model.addFlashAttribute("MESSAGE", msgList);
+            return "redirect:/reservation/user_list";
+        }
+    }
+
     @RequestMapping(value = "/user_detail", params = "id")
     public String user_detail(int id, Map<String, Object> map) {
         Reservation reservation = this.reservationService.getById(id);
@@ -103,16 +127,10 @@ public class ReservationController {
         return "reservation_user_detail.jsp";
     }
 
-    @RequestMapping("/edit")
-    public String edit(HttpSession session, Reservation RESERVATION) {
-        this.reservationService.edit(RESERVATION);
-        return "redirect:/reservation/list";
-    }
-
     @RequestMapping(value = "/remove", params = "id")
     public String remove(int id) {
         this.reservationService.remove(id);
-        return "redirect:/reservation/list";
+        return "redirect:/reservation/user_list";
     }
 
     @RequestMapping("/pending")

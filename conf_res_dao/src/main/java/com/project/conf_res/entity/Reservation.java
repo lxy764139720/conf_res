@@ -1,11 +1,11 @@
 package com.project.conf_res.entity;
 
-import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -15,7 +15,7 @@ public class Reservation {
     private int rid;
     private int member;
     @NotNull(message = "请输入预约日期")
-    @FutureOrPresent(message = "预约日期必须在今天或之后")
+    @FutureOrPresent(message = "预约日期必须在当天或之后")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date; //会议时间
     private String time; //会议时段
@@ -23,8 +23,7 @@ public class Reservation {
     private LocalDateTime resTime; //申请预约时间
     private String state;
     private String usage;
-    @NotNull(message = "请输入联系方式")
-    @NotEmpty(message = "请输入联系方式")
+    @NotBlank(message = "请输入联系方式")
     private String tel;
     private String info;
 

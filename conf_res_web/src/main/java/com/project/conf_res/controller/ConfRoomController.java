@@ -5,8 +5,14 @@ import com.project.conf_res.entity.ConfRoom;
 import com.project.conf_res.global.Contant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller("confRoomController")
@@ -34,8 +40,16 @@ public class ConfRoomController {
     }
 
     @RequestMapping("/add")
-    public String add(ConfRoom ROOM) {
-        if (this.confRoomService.getByName(ROOM.getName()) == null) {
+    public String add(@Valid ConfRoom ROOM, BindingResult result, RedirectAttributes model) {
+        List<String> msgList = new ArrayList<>();
+        if (result.hasErrors()) {
+            List<FieldError> errList = result.getFieldErrors();
+            for (int i = 0; i < errList.size(); ++i) {
+                msgList.add(errList.get(i).getDefaultMessage());
+            }
+            model.addFlashAttribute("MESSAGE", msgList);
+            return "redirect:/reservation/to_add";
+        } else if (this.confRoomService.getByName(ROOM.getName()) == null) {
             this.confRoomService.add(ROOM); //与上面传入jsp页面的参数名称保持一致
         }
         return "redirect:/confroom/administrator_list";

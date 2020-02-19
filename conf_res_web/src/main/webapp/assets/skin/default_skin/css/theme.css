@@ -5044,7 +5044,7 @@ body.mfp-bg-open .ui-datepicker-inline {
 }
 /*datepicker*/
 .datepicker {
-  padding: 6px;
+  padding: 0;
 }
 /*daterangepicker*/
 .daterangepicker.dropdown-menu {

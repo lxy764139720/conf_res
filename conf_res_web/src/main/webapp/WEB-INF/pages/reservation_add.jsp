@@ -3,11 +3,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <jsp:include page="user_top.jsp"/>
-<script type="text/javascript" src="../../vendor/jquery/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+<link rel="stylesheet" href="../../css/dcalendar.picker.css"/>
+<script type="text/javascript" src="../../js/dcalendar.picker.js"></script>
 <script type="text/javascript">
     <c:forEach items="${MESSAGE}" var="msg">
     alert("${msg}");
     </c:forEach>
+    $(function () {
+        $('#date').dcalendarpicker({
+            format: 'yyyy-MM-dd'
+        });
+    });
 </script>
 <section id="content" class="table-layout animated fadeIn">
     <div class="tray tray-center">
@@ -56,9 +63,10 @@
                             <span> 预约信息 </span>
                         </div>
                         <div class="section row" id="items">
-                            <div class="col-md-4">
+                            <div class='col-sm-4'>
                                 <label for="date" class="field prepend-icon">
-                                    <form:input path="date" cssClass="gui-input" placeholder="预约日期(yyyy-MM-dd)"/>
+                                    <form:input path="date" cssClass="gui-input" placeholder="预约日期"
+                                                cssStyle="padding-left: 36px"/>
                                     <label for="date" class="field-icon">
                                         <i class="glyphicon glyphicon-calendar"></i>
                                     </label>
