@@ -17,11 +17,12 @@ public class Reservation {
     @NotNull(message = "请输入预约日期")
     @FutureOrPresent(message = "预约日期必须在当天或之后")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate date; //会议时间
+    private LocalDate date; //会议日期
     private String time; //会议时段
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime resTime; //申请预约时间
     private String state;
+    private String leader;
     private String usage;
     @NotBlank(message = "请输入联系方式")
     private String tel;
@@ -92,6 +93,14 @@ public class Reservation {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getLeader() {
+        return leader;
+    }
+
+    public void setLeader(String leader) {
+        this.leader = leader;
     }
 
     public String getUsage() {

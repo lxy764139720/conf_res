@@ -23,7 +23,11 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public void add(Reservation reservation) {
         reservation.setResTime(LocalDateTime.now());
-        reservation.setState(Contant.AUDIT_RESULT_PENDING);
+        if (reservation.getLeader().equals("是")) {
+            reservation.setState(Contant.AUDIT_RESULT_PASS);
+        } else {
+            reservation.setState(Contant.AUDIT_RESULT_PENDING);
+        }
         this.reservationDao.insert(reservation);
     }
 
@@ -39,6 +43,11 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void edit(Reservation reservation) {
+        if (reservation.getLeader().equals("是")) {
+            reservation.setState(Contant.AUDIT_RESULT_PASS);
+        } else {
+            reservation.setState(Contant.AUDIT_RESULT_PENDING);
+        }
         this.reservationDao.update(reservation);
     }
 

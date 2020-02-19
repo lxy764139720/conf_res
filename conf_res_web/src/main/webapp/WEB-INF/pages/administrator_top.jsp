@@ -110,7 +110,7 @@
                 <%--                </li>--%>
                 <li class="sidebar-label pt15">预约审核管理</li>
                 <li>
-                    <a class="accordion-toggle" href="/reservation/audit">
+                    <a class="accordion-toggle" href="/reservation/administrator_list">
                         <span class="fa fa-calendar"></span>
                         <span class="sidebar-title">预约审核</span>
                         <span class="caret"></span>

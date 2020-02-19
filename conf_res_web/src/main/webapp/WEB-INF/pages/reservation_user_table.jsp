@@ -4,7 +4,6 @@
 
 <jsp:include page="user_top.jsp"/>
 <link href="/css/table_style.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../vendor/jquery/jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
     //预约看板的色码表
     let colorArr = ["#35C3B4", "#739BE4", "#00B0EC", "#FCCB00", "#FF8D44", "#FF7372", "#6349CD"];//7,1,2,3,4,5,6

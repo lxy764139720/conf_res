@@ -10,6 +10,7 @@
         <result property="time" column="time" javaType="String"/>
         <result property="resTime" column="res_time" javaType="java.time.LocalDateTime"/>
         <result property="state" column="state" javaType="String"/>
+        <result property="leader" column="leader" javaType="String"/>
         <result property="usage" column="usage" javaType="String"/>
         <result property="tel" column="tel" javaType="String"/>
         <result property="info" column="info" javaType="String"/>
@@ -19,8 +20,8 @@
                      select="com.project.conf_res.dao.ConfRoomDao.selectById"/>
     </resultMap>
     <insert id="insert" parameterType="Reservation" useGeneratedKeys="true">
-        INSERT INTO reservation (`uid`, `rid`, `member`, `date`, `time`, `res_time`, `state`, `usage`, `tel`, `info`)
-        VALUES (#{uid}, #{rid}, #{member}, #{date}, #{time}, #{resTime}, #{state}, #{usage}, #{tel}, #{info})
+        INSERT INTO reservation (`uid`, `rid`, `member`, `date`, `time`, `res_time`, `state`, `leader`, `usage`, `tel`, `info`)
+        VALUES (#{uid}, #{rid}, #{member}, #{date}, #{time}, #{resTime}, #{state}, #{leader}, #{usage}, #{tel}, #{info})
     </insert>
     <delete id="delete" parameterType="Integer">
         DELETE
@@ -41,6 +42,7 @@
             `time`=#{time},
             `res_time`=#{resTime},
             `state`=#{state},
+            `leader`=#{leader},
             `usage`=#{usage},
             `tel`=#{tel},
             `info`=#{info}

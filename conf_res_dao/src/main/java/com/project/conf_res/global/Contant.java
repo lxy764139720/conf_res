@@ -35,6 +35,17 @@ public class Contant {
         return list;
     }
 
+    //是否有领导与会
+    public static final String LEADER_FALSE = "否";
+    public static final String LEADER_TRUE = "是";
+
+    public static List<String> getLeader() {
+        List<String> list = new ArrayList<>();
+        list.add(LEADER_FALSE);
+        list.add(LEADER_TRUE);
+        return list;
+    }
+
     //会议室状态
     public static final String ROOM_STATE_OPEN = "开放";
     public static final String ROOM_STATE_OFF = "关闭";

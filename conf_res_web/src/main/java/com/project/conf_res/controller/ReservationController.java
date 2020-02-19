@@ -56,6 +56,7 @@ public class ReservationController {
             reservation.setRoom(this.confRoomService.getById(id));
             map.put("RESERVATION", reservation);
             map.put("TIME", Contant.getTime());
+            map.put("LEADER", Contant.getLeader());
         }
         return "reservation_add.jsp";
     }
@@ -90,6 +91,7 @@ public class ReservationController {
         reservation.setRoom(this.confRoomService.getById(reservation.getRid()));
         map.put("RESERVATION", reservation);
         map.put("TIME", Contant.getTime());
+        map.put("LEADER", Contant.getLeader());
         return "reservation_edit.jsp";
     }
 

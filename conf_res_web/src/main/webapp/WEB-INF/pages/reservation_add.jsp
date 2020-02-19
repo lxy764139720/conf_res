@@ -72,9 +72,22 @@
                                     </label>
                                 </label>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <label for="time" class="field prepend-icon">
-                                    <form:select path="time" cssClass="gui-input" items="${TIME}"/>
+                                    <form:select path="time" cssClass="gui-input" items="${TIME}"
+                                                 cssStyle="padding-left: 36px"/>
+                                    <label for="time" class="field-icon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </label>
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="leader" class="field prepend-icon">
+                                    <form:select path="leader" cssClass="gui-input" items="${LEADER}"
+                                                 cssStyle="padding-left: 36px"/>
+                                    <label for="leader" class="field-icon">
+                                        <i class="fa fa-trophy"></i>
+                                    </label>
                                 </label>
                             </div>
                         </div>
