@@ -23,11 +23,6 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public void add(Reservation reservation) {
         reservation.setResTime(LocalDateTime.now());
-        if (reservation.getLeader().equals("是")) {
-            reservation.setState(Contant.AUDIT_RESULT_PASS);
-        } else {
-            reservation.setState(Contant.AUDIT_RESULT_PENDING);
-        }
         this.reservationDao.insert(reservation);
     }
 
@@ -43,11 +38,6 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void edit(Reservation reservation) {
-        if (reservation.getLeader().equals("是")) {
-            reservation.setState(Contant.AUDIT_RESULT_PASS);
-        } else {
-            reservation.setState(Contant.AUDIT_RESULT_PENDING);
-        }
         this.reservationDao.update(reservation);
     }
 
@@ -67,8 +57,13 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public List<Reservation> getExist(LocalDate date, String time) {
-        return this.reservationDao.selectExist(date, time);
+    public List<Reservation> getExist(LocalDate date, String time, int rid) {
+        return this.reservationDao.selectExist(date, time, rid);
+    }
+
+    @Override
+    public List<Reservation> getOtherPending(int id) {
+        return this.reservationDao.selectOtherPending(id);
     }
 
     @Override

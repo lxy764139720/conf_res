@@ -11,39 +11,51 @@
             <div class="panel heading-border">
                 <form:form action="/confroom/edit" modelAttribute="ROOM" id="admin-form" name="addForm">
                     <div class="panel-body bg-light">
-                        <div class="section-divider mt20 mb40">
+                        <div class="section-divider mt40 mb40">
                             <span> 基本信息 </span>
                         </div>
                         <form:hidden path="id"/>
-                        <div class="section">
-                            <label for="name" class="field prepend-icon">
-                                <form:input path="name" cssClass="gui-input" placeholder="会议室名称"/>
-                                <label for="name" class="field-icon">
-                                    <i class="fa fa-building-o"></i>
+                        <div class="section row">
+                            <div class="col-md-2" style="margin-top: 13px">会议室名称</div>
+                            <div class="col-md-10">
+                                <label for="name" class="field prepend-icon">
+                                    <form:input path="name" cssClass="gui-input" placeholder="会议室名称"/>
+                                    <label for="name" class="field-icon">
+                                        <i class="fa fa-building-o"></i>
+                                    </label>
                                 </label>
-                            </label>
+                            </div>
                         </div>
-                        <div class="section">
-                            <label for="member" class="field prepend-icon">
-                                <form:input path="member" cssClass="gui-input" placeholder="可容纳人数"/>
-                                <label for="member" class="field-icon">
-                                    <i class="fa fa-building-o"></i>
+                        <div class="section row">
+                            <div class="col-md-2" style="margin-top: 13px">可容纳人数</div>
+                            <div class="col-md-10">
+                                <label for="member" class="field prepend-icon">
+                                    <form:input path="member" cssClass="gui-input" placeholder="可容纳人数"/>
+                                    <label for="member" class="field-icon">
+                                        <i class="fa fa-building-o"></i>
+                                    </label>
                                 </label>
-                            </label>
+                            </div>
                         </div>
-                        <div class="section">
-                            <label for="location" class="field prepend-icon">
-                                <form:input path="location" cssClass="gui-input" placeholder="会议室地址"/>
-                                <label for="location" class="field-icon">
-                                    <i class="fa fa-building-o"></i>
+                        <div class="section row">
+                            <div class="col-md-2" style="margin-top: 13px">会议室地址</div>
+                            <div class="col-md-10">
+                                <label for="location" class="field prepend-icon">
+                                    <form:input path="location" cssClass="gui-input" placeholder="会议室地址"/>
+                                    <label for="location" class="field-icon">
+                                        <i class="fa fa-building-o"></i>
+                                    </label>
                                 </label>
-                            </label>
+                            </div>
                         </div>
-                        <div class="section">
-                            <label for="state" class="field select">
-                                <form:select path="state" items="${STATE}" cssClass="gui-input"/>
-                                <i class="arrow double"></i>
-                            </label>
+                        <div class="section row">
+                            <div class="col-md-2" style="margin-top: 13px">会议室状态</div>
+                            <div class="col-md-10">
+                                <label for="state" class="field select">
+                                    <form:select path="state" items="${STATE}" cssClass="gui-input"/>
+                                    <i class="arrow double"></i>
+                                </label>
+                            </div>
                         </div>
                         <div class="panel-footer text-right">
                             <button type="submit" class="button"> 保存</button>

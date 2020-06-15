@@ -23,8 +23,10 @@ public interface ReservationDao {
     List<Reservation> selectByUid(@Param("uid") int uid, @Param("date") LocalDate date);
 
     List<Reservation> selectByRid(@Param("rid") int rid, @Param("date") LocalDate date);
-
-    List<Reservation> selectExist(@Param("date") LocalDate date, @Param("time") String time);
+    // 获取该时间该会议室已审核通过的预约
+    List<Reservation> selectExist(@Param("date") LocalDate date, @Param("time") String time, @Param("rid") int rid);
+    // 通过id获取在该时间该会议室其他待审核的预约
+    List<Reservation> selectOtherPending(int id);
 
     List<Reservation> selectForTable(@Param("rid") int rid, @Param("date1") LocalDate monday, @Param("date2") LocalDate sunday);
 

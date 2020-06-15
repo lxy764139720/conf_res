@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Controller("auditController")
@@ -33,15 +34,30 @@ public class AuditController {
 
     private void audit(HttpSession session, int rid, String info, String result) {
         Reservation reservation = this.reservationService.getById(rid);
-        reservation.setState(Contant.AUDIT_RESULT_PASS);
+        reservation.setState(result);
         this.reservationService.edit(reservation);
         AuditLog auditLog = new AuditLog();
         auditLog.setUid(reservation.getUid());
-        auditLog.setRid(reservation.getRid());
+        auditLog.setRid(reservation.getId());
         auditLog.setAid(((Administrator) session.getAttribute("ADMINISTRATOR")).getId());
-        auditLog.setAuditResult(Contant.AUDIT_RESULT_PASS);
+        auditLog.setAuditResult(result);
         auditLog.setInfo(info);
         this.auditLogService.add(auditLog);
+        if (result.equals(Contant.AUDIT_RESULT_PASS)) {
+            List<Reservation> reservations = this.reservationService.getOtherPending(rid);
+            for (int i = 0; i < reservations.size(); i++) {
+                Reservation r = reservations.get(i);
+                r.setState(Contant.AUDIT_RESULT_REJECT);
+                this.reservationService.edit(r);
+                AuditLog a = new AuditLog();
+                a.setUid(r.getUid());
+                a.setRid(r.getId());
+                a.setAid(((Administrator) session.getAttribute("ADMINISTRATOR")).getId());
+                a.setAuditResult(Contant.AUDIT_RESULT_REJECT);
+                a.setInfo("已通过其他预约，自动拒绝");
+                this.auditLogService.add(a);
+            }
+        }
     }
 
     @PostMapping("/pass")

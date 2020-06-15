@@ -3,6 +3,7 @@ package com.project.conf_res.controller;
 import com.project.conf_res.AuditLogService;
 import com.project.conf_res.ConfRoomService;
 import com.project.conf_res.ReservationService;
+import com.project.conf_res.entity.Administrator;
 import com.project.conf_res.entity.AuditLog;
 import com.project.conf_res.entity.Reservation;
 import com.project.conf_res.entity.User;
@@ -71,13 +72,33 @@ public class ReservationController {
             }
             model.addFlashAttribute("MESSAGE", msgList);
             return "redirect:/reservation/to_add?id=" + RESERVATION.getRid();
-        } else if (!this.reservationService.getExist(RESERVATION.getDate(), RESERVATION.getTime()).isEmpty()) {
-            msgList.add("请选择其他时段");
+        } else if (!this.reservationService.getExist(RESERVATION.getDate(), RESERVATION.getTime(), RESERVATION.getRid()).isEmpty()) {
+            msgList.add("请选择其他时段或会议室");
             model.addFlashAttribute("MESSAGE", msgList);
             return "redirect:/reservation/to_add?id=" + RESERVATION.getRid();
         } else {
             RESERVATION.setUser((User) session.getAttribute("USER"));
             RESERVATION.setUid(RESERVATION.getUser().getId());
+            if (RESERVATION.getLeader().equals("是")) {
+                // 领导与会
+                RESERVATION.setState(Contant.AUDIT_RESULT_PASS);
+                // 设置其他同时同会议室的预约为拒绝
+                List<Reservation> reservations = this.reservationService.getOtherPending(RESERVATION.getId());
+                for (int i = 0; i < reservations.size(); i++) {
+                    Reservation r = reservations.get(i);
+                    r.setState(Contant.AUDIT_RESULT_REJECT);
+                    this.reservationService.edit(r);
+                    AuditLog a = new AuditLog();
+                    a.setUid(r.getUid());
+                    a.setRid(r.getId());
+                    a.setAid(1);
+                    a.setAuditResult(Contant.AUDIT_RESULT_REJECT);
+                    a.setInfo("已通过其他预约，自动拒绝");
+                    this.auditLogService.add(a);
+                }
+            } else {
+                RESERVATION.setState(Contant.AUDIT_RESULT_PENDING);
+            }
             this.reservationService.add(RESERVATION);
             msgList.add("已提交申请");
             model.addFlashAttribute("MESSAGE", msgList);
@@ -105,13 +126,33 @@ public class ReservationController {
             }
             model.addFlashAttribute("MESSAGE", msgList);
             return "redirect:/reservation/to_edit?id=" + RESERVATION.getRid();
-        } else if (!this.reservationService.getExist(RESERVATION.getDate(), RESERVATION.getTime()).isEmpty()) {
-            msgList.add("请选择其他时段");
+        } else if (!this.reservationService.getExist(RESERVATION.getDate(), RESERVATION.getTime(), RESERVATION.getRid()).isEmpty()) {
+            msgList.add("请选择其他时段或会议室");
             model.addFlashAttribute("MESSAGE", msgList);
             return "redirect:/reservation/to_edit?id=" + RESERVATION.getRid();
         } else {
             RESERVATION.setUser((User) session.getAttribute("USER"));
             RESERVATION.setUid(RESERVATION.getUser().getId());
+            if (RESERVATION.getLeader().equals("是")) {
+                // 领导与会
+                RESERVATION.setState(Contant.AUDIT_RESULT_PASS);
+                // 设置其他同时同会议室的预约为拒绝
+                List<Reservation> reservations = this.reservationService.getOtherPending(RESERVATION.getId());
+                for (int i = 0; i < reservations.size(); i++) {
+                    Reservation r = reservations.get(i);
+                    r.setState(Contant.AUDIT_RESULT_REJECT);
+                    this.reservationService.edit(r);
+                    AuditLog a = new AuditLog();
+                    a.setUid(r.getUid());
+                    a.setRid(r.getId());
+                    a.setAid(1);
+                    a.setAuditResult(Contant.AUDIT_RESULT_REJECT);
+                    a.setInfo("已通过其他预约，自动拒绝");
+                    this.auditLogService.add(a);
+                }
+            } else {
+                RESERVATION.setState(Contant.AUDIT_RESULT_PENDING);
+            }
             this.reservationService.edit(RESERVATION);
             msgList.add("已修改申请");
             model.addFlashAttribute("MESSAGE", msgList);

@@ -30,12 +30,13 @@
                     <form:hidden path="resTime"/>
                     <form:hidden path="state"/>
                     <div class="panel-body bg-light">
-                        <div class="section-divider mt20 mb40">
+                        <div class="section-divider mt40 mb40">
                             <span> 会议室信息 </span>
                         </div>
                         <form:hidden path="rid"/>
                         <div class="section row" id="items">
-                            <div class="col-md-4">
+                            <div class="col-md-2" style="margin-top: 13px">会议室名称</div>
+                            <div class="col-md-2">
                                 <label for="room.name" class="field prepend-icon">
                                     <form:input path="room.name" cssClass="gui-input"
                                                 placeholder="${RESERVATION.room.name}"
@@ -45,7 +46,8 @@
                                     </label>
                                 </label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2" style="margin-top: 13px">可容纳人数</div>
+                            <div class="col-md-2">
                                 <label for="room.member" class="field prepend-icon">
                                     <form:input path="room.member" cssClass="gui-input"
                                                 placeholder="${RESERVATION.room.member}" readonly="true"/>
@@ -54,7 +56,8 @@
                                     </label>
                                 </label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2" style="margin-top: 13px">会议室位置</div>
+                            <div class="col-md-2">
                                 <label for="room.location" class="field prepend-icon">
                                     <form:input path="room.location" cssClass="gui-input"
                                                 placeholder="${RESERVATION.room.location}" readonly="true"/>
@@ -64,11 +67,12 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="section-divider mt20 mb40">
+                        <div class="section-divider mt40 mb40">
                             <span> 预约信息 </span>
                         </div>
                         <div class="section row" id="items">
-                            <div class='col-sm-4'>
+                            <div class="col-sm-2" style="margin-top: 13px">预约日期</div>
+                            <div class='col-sm-2'>
                                 <label for="date" class="field prepend-icon">
                                     <form:input path="date" cssClass="gui-input" placeholder="预约日期"
                                                 cssStyle="padding-left: 36px"/>
@@ -77,7 +81,8 @@
                                     </label>
                                 </label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-2" style="margin-top: 13px">预约时段</div>
+                            <div class='col-sm-2'>
                                 <label for="time" class="field prepend-icon">
                                     <form:select path="time" cssClass="gui-input" placeholder="预约时段" items="${TIME}"
                                                  cssStyle="padding-left: 36px"/>
@@ -86,7 +91,8 @@
                                     </label>
                                 </label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-2" style="margin-top: 13px">领导与会</div>
+                            <div class='col-sm-2'>
                                 <label for="leader" class="field prepend-icon">
                                     <form:select path="leader" cssClass="gui-input" items="${LEADER}"
                                                  cssStyle="padding-left: 36px"/>
@@ -97,7 +103,8 @@
                             </div>
                         </div>
                         <div class="section row" id="items">
-                            <div class="col-md-4">
+                            <div class="col-sm-2" style="margin-top: 13px">与会人数</div>
+                            <div class='col-sm-2'>
                                 <label for="member" class="field prepend-icon">
                                     <form:input path="member" cssClass="gui-input" placeholder="与会人数"/>
                                     <label for="member" class="field-icon">
@@ -105,7 +112,8 @@
                                     </label>
                                 </label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-2" style="margin-top: 13px">会议内容</div>
+                            <div class='col-sm-2'>
                                 <label for="usage" class="field prepend-icon">
                                     <form:input path="usage" cssClass="gui-input" placeholder="会议内容"/>
                                     <label for="usage" class="field-icon">
@@ -113,7 +121,8 @@
                                     </label>
                                 </label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-2" style="margin-top: 13px">联系电话</div>
+                            <div class='col-sm-2'>
                                 <label for="tel" class="field prepend-icon">
                                     <form:input path="tel" cssClass="gui-input" placeholder="联系电话"/>
                                     <label for="tel" class="field-icon">

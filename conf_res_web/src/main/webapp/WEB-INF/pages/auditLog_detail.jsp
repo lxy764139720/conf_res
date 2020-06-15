@@ -12,7 +12,7 @@
         <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
             <div class="panel heading-border">
                 <div class="panel-body bg-light">
-                    <div class="section-divider mt20 mb40">
+                    <div class="section-divider mt40 mb40">
                         <span> 预约信息 </span>
                     </div>
                     <div class="section row">
@@ -36,8 +36,8 @@
                     <div class="section row">
                         <div class="col-md-2">申请人</div>
                         <div class="col-md-4">${AUDITLOG.user.name}</div>
-                        <div class="col-md-2">TODO</div>
-                        <div class="col-md-4">领导与会？</div>
+                        <div class="col-md-2">领导与会</div>
+                        <div class="col-md-4">${AUDITLOG.reservation.leader}</div>
                     </div>
                     <div class="section row">
                         <div class="col-md-2">创建时间</div>
@@ -49,7 +49,7 @@
                         <div class="col-md-2">预约备注</div>
                         <div class="col-md-10">${AUDITLOG.reservation.info}</div>
                     </div>
-                    <div class="section-divider mt20 mb40">
+                    <div class="section-divider mt40 mb40">
                         <span> 审核情况 </span>
                     </div>
                     <div class="section row">

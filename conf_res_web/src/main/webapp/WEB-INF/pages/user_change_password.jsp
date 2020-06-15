@@ -11,7 +11,7 @@
             <div class="panel heading-border">
                 <form method="post" action="/user/change_password" id="admin-form">
                     <div class="panel-body bg-light">
-                        <div class="section-divider mt20 mb40">
+                        <div class="section-divider mt40 mb40">
                             <span> 基本信息 </span>
                         </div>
                         <div class="section row">

@@ -16,7 +16,7 @@
                         <div class="hidden-xs hidden-sm col-md-3">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default light"
-                                        onclick="window.location.href='/reservation/to_add';">
+                                        onclick="window.location.href='/confroom/user_list';">
                                     <i class="fa fa-refresh"></i>
                                 </button>
                             </div>
@@ -49,12 +49,13 @@
                         <%--@elvariable id="LIST" type="java.util.List"--%>
                         <c:forEach items="${LIST}" var="room">
                             <tr class="message-unread">
-                                    <%--                                <td class="hidden-xs">--%>
-                                    <%--                                    <label class="option block mn">--%>
-                                    <%--                                        <input type="checkbox" name="mobileos" value="FR">--%>
-                                    <%--                                        <span class="checkbox mn"></span>--%>
-                                    <%--                                    </label>--%>
-                                    <%--                                </td>--%>
+                                    <%--勾选框--%>
+                                    <%--<td class="hidden-xs">--%>
+                                    <%--    <label class="option block mn">--%>
+                                    <%--        <input type="checkbox" name="mobileos" value="FR">--%>
+                                    <%--        <span class="checkbox mn"></span>--%>
+                                    <%--    </label>--%>
+                                    <%--</td>--%>
                                 <td>${room.name}</td>
                                 <td>${room.member}</td>
                                 <td>${room.location}</td>

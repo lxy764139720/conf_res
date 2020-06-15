@@ -17171,8 +17171,8 @@ table.tc-checkbox-1 tbody td:first-child,
 table.tc-checkbox-2 tbody td:nth-child(2),
 table.tc-checkbox-3 tbody td:nth-child(3),
 table.tc-checkbox-last tbody td:last-child {
-  text-align: center;
-  padding: 11px;
+  /*text-align: center;*/
+  /*padding: 11px;*/
 }
 /* special styles */
 table.tc-list-1 tbody td:first-child,

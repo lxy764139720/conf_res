@@ -20,7 +20,8 @@
                      select="com.project.conf_res.dao.ConfRoomDao.selectById"/>
     </resultMap>
     <insert id="insert" parameterType="Reservation" useGeneratedKeys="true">
-        INSERT INTO reservation (`uid`, `rid`, `member`, `date`, `time`, `res_time`, `state`, `leader`, `usage`, `tel`, `info`)
+        INSERT INTO reservation (`uid`, `rid`, `member`, `date`, `time`, `res_time`, `state`, `leader`, `usage`, `tel`,
+                                 `info`)
         VALUES (#{uid}, #{rid}, #{member}, #{date}, #{time}, #{resTime}, #{state}, #{leader}, #{usage}, #{tel}, #{info})
     </insert>
     <delete id="delete" parameterType="Integer">
@@ -70,7 +71,15 @@
         FROM reservation
         WHERE `date` = #{date}
           and `time` = #{time}
+          and `rid` = #{rid}
           and `state` = '已通过'
+    </select>
+    <select id="selectOtherPending" resultMap="resultMap">
+        SELECT *
+        FROM reservation
+        WHERE `date` = (SELECT `date` FROM reservation WHERE `id` = #{id})
+          and `time` = (SELECT `time` FROM reservation WHERE `id` = #{id})
+          and `id` != #{id}
     </select>
     <select id="selectPending" resultMap="resultMap">
         SELECT *
