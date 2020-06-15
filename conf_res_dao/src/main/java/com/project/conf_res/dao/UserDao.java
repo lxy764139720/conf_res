@@ -18,4 +18,6 @@ public interface UserDao {
     User selectByAccount(String account);
 
     List<User> selectAll();
+
+    List<User> selectAllForList();  //附加查询每个用户的预约数量
 }

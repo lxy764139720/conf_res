@@ -140,7 +140,7 @@
                     <ul class="nav sub-nav">
                         <li>
                             <a href="/user/list">
-                                <span class="glyphicon glyphicon-calendar"></span> 所有用户 </a>
+                                <span class="glyphicon glyphicon-calendar"></span> 用户列表 </a>
                         </li>
                         <li class="active">
                             <a href="/user/to_add">
