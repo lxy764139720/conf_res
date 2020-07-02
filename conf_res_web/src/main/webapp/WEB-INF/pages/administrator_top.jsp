@@ -157,7 +157,7 @@
                     <ul class="nav sub-nav">
                         <li>
                             <a href="/confroom/administrator_list">
-                                <span class="glyphicon glyphicon-calendar"></span> 所有会议室 </a>
+                                <span class="glyphicon glyphicon-calendar"></span> 会议室列表 </a>
                         </li>
                         <li class="active">
                             <a href="/confroom/to_add">
